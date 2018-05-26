@@ -11,11 +11,13 @@ def LP_CTO(reward,beta,sample):
 		problem+= probability[i]>=beta*sample[i]
 	problem+= lpSum(probability)==1
 	status=problem.solve()
-	print(LpStatus[status])
+#	print(LpStatus[status])
 	ans=[]
+	final_reward=0
 	for i in range(length):
 		ans.append(value(probability[i]))
-	return ans
+		final_reward+=reward[i]*value(probability[i])
+	return (final_reward,ans)
 
 #EXAMPLE
 
