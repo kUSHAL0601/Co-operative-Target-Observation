@@ -76,7 +76,7 @@ def main():
 		for i in targets:
 			print("H",float(i.x),float(i.y),0.0)
 		for i in observers:
-			print("Rn",float(i.x),float(i.y),0.0)
+			print("N",float(i.x),float(i.y),0.0)
 		step+=1
 
 main()

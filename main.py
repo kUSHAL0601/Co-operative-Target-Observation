@@ -23,11 +23,8 @@ total_steps=1500
 update_steps=10
 observer_target_dict={}
 template_probability_distribution=[]
-#for i in range(10):
-#	template_probability_distribution.append(0.1)
-template_probability_distribution.append(1.0)
-for i in range(9):
-	template_probability_distribution.append(0)
+for i in range(10):
+	template_probability_distribution.append(0.1)
 
 def initialize():
 	no_targets=no_targets_arr[RI(0,4)]
