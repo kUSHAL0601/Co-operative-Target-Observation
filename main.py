@@ -17,22 +17,25 @@ y_limit=150
 target_speed=[0.2,0.5,0.8,1.0,1.2,1.5]
 observer_speed=1.0
 sensor_range=[5,10,15,20,25]
-targets=[]
-observers=[]
 total_steps=1500
 update_steps=10
 observer_target_dict={}
 template_probability_distribution=[]
-for i in range(10):
-	template_probability_distribution.append(0.1)
+#for i in range(10):
+#	template_probability_distribution.append(0.1)
+template_probability_distribution=[0.001953125, 0.001953125, 0.00390625, 0.0078125, 0.015625, 0.03125, 0.0625, 0.125,0.25,0.5]
+
 
 def initialize():
+	targets=[]
+	observers=[]
 	no_targets=no_targets_arr[RI(0,4)]
 	no_observers=no_observers_arr[RI(0,4)]
 	for i in range(no_targets):
 		targets.append(T(R()*150,R()*150,target_speed[RI(0,5)],R()*360))
 	for i in range(no_observers):
 		observers.append(O(R()*150,R()*150,observer_speed,sensor_range[RI(0,4)]))
+	return (no_targets,no_observers,targets,observers)
 
 def update():
 	temp_dict={}
@@ -44,9 +47,8 @@ def update():
 				temp_dict[i].append(j)
 	return temp_dict
 
-def main():
+def main_orig(no_targets,no_observers,targets,observers):
 	step=0
-	initialize()
 	data_until_update=[]
 	while(step<=total_steps):
 		if(step%update_steps==0):
@@ -72,6 +74,6 @@ def main():
 		for i in targets:
 			i.update(x_limit,y_limit)
 		step+=1
-		print(step)
 
-main()
+(no_targets,no_observers,targets,observers)=initialize()
+main_orig(no_targets,no_observers,targets,observers)
