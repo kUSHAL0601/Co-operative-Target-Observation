@@ -27,4 +27,4 @@ APPROACH
   + For targets:
 	1. Try to go away from observers.
 	2. Try to go near the obstacles, match its speed if possible.
-	3. Have a bit randomization in the motion
+	3. Have decreased randomization in the motion

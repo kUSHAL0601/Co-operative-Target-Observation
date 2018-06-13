@@ -1,0 +1,228 @@
+
+1. BRLP.java
+
+public class BRLP {
+
+	Double[] rewards;
+	Double[] probab1;// = {0.001953125, 0.001953125, 0.00390625, 0.0078125, 0.015625, 0.03125, 0.0625, 0.125,0.25,0.5};
+	Double[] OptProbab;
+	Double[] Probability;
+	int granules;
+	int IdNum;
+	Linearprogram lp;
+
+	public BRLP(Double[] reward, int divisions, int Id){
+
+		this.granules = divisions;
+		this.rewards = new Double[this.granules];
+		this.probab1 = new Double[this.granules];
+		this.OptProbab = new Double[this.granules+1];
+		this.Probability = new Double[this.granules+1];
+		for( int i = 0 ; i < this.granules ; i++ ){
+			this.rewards[i] = reward[i];
+			this.probab1[i] = 1.0/this.granules;
+			this.OptProbab[i] = 1.0/this.granules;;
+		}
+		this.OptProbab[granules] = 0.0;
+		this.IdNum = Id;
+	}
+
+	public Double calculateEntropy(Double[] pdf){
+		Double entropy = 0.0;
+		for(int i = 0; i < this.granules; i++){
+			entropy -= pdf[i]*(Math.log(pdf[i]));
+		}
+		return entropy;
+	}
+
+	public Double[] BRLPprogram(){
+
+		double beta_l = 1, beta_u = 0, beta = 0.5;
+
+		double BRLP_tolerance = 0.001;
+		this.lp = new Linearprogram(this.rewards,this.OptProbab, this.probab1, this.granules);
+
+		this.OptProbab = this.lp.solveMe(1);
+
+		if(this.OptProbab[this.granules] == -10000.0){
+			return this.probab1;
+		}
+
+		double Emin = -1.0;
+		for(int i = 0; i<this.granules; i++){
+			if(Emin < rewards[i])Emin=rewards[i];
+		}
+
+		Emin = 0.7*Emin; 				 
+
+		if(Emin >= this.OptProbab[this.granules]){
+
+			this.Probability = this.lp.solveMe(beta);
+
+			if(this.Probability[this.granules] == -10000.0){
+
+				return this.Probability;
+			}
+
+			while(Math.abs(this.Probability[this.granules]-Emin ) > BRLP_tolerance){
+
+				if(this.Probability[this.granules] == -10000.0){
+
+					return this.Probability;
+				}
+				else {
+					if(this.Probability[this.granules] > Emin){
+						beta_u=beta;
+					}
+					else{
+						beta_l=beta;
+					}
+					beta = (beta_l+beta_u)/2.0;
+					this.Probability = this.lp.solveMe(beta);
+				}
+
+			}
+			//Double Entropy_beta = calculateEntropy(this.Probability);
+			//System.out.println(/*this.Probability[10]+*/"  "+Entropy_beta);
+
+			return this.Probability;
+		}
+		else{
+			//Double Entropy_beta = calculateEntropy(this.probab1);
+			//System.out.println(/*this.OptProbab[10]*/"  "+Entropy_beta);
+			return this.OptProbab;
+		}
+	}
+}
+
+
+
+2. Linearprogram.java
+
+import ilog.concert.IloException;
+import ilog.concert.IloLinearNumExpr;
+import ilog.concert.IloNumVar;
+import ilog.concert.IloRange;
+import ilog.cplex.IloCplex;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import sim.util.Double2D;
+
+public class Linearprogram {
+
+	Double[] reward;
+	Double[] probab1;
+	Double[] OptProbab;
+	Boolean[] vecProbab;
+	static double beta;
+	static IloCplex cplex;
+	int refinements;
+
+	//private CplexVariableExtractor cplexExtractor; 
+	public Linearprogram ( Double[] Reward, Double[] OptProbability, Double[] Probab1, int divs){
+
+		this.refinements = divs;
+		reward = new Double[this.refinements];
+		probab1 = new Double[this.refinements];
+		OptProbab = new Double[this.refinements+1];
+
+		for( int i = 0 ; i < this.refinements ; i++ ){
+			this.reward[i] = Reward[i];
+			this.probab1[i] = Probab1[i];
+			this.OptProbab[i] = OptProbability[i];
+		}
+		OptProbab[this.refinements] = 0.0;
+
+	}
+
+	public Double[] solveMe(double beta) {
+	/*	System.out.println("Settings " + beta);
+		for(int i =0 ; i< refinements; i++){
+			System.out.print(reward[i] + " ");
+		}
+		System.out.print("\n");
+		for(int i=0;i< refinements; i++)
+			System.out.print(probab1[i] + " ");
+		System.out.print("\n");
+		*/this.beta = beta;
+		try {
+			cplex = new IloCplex();
+		} catch (IloException e) {
+			e.printStackTrace();
+		}
+
+		try {
+
+			IloNumVar[] probab = cplex.numVarArray(this.refinements, 0.0, 1.0);
+			// expressions
+			IloLinearNumExpr objective = cplex.linearNumExpr();
+			for(int i=0;i<this.refinements;i++){
+				objective.addTerm(reward[i],probab[i]);
+			}
+
+			// define objective
+			cplex.addMaximize(objective);
+		//	IloLinearNumExpr sub_constraint = cplex.linearNumExpr();
+
+			// define constraints
+			List<IloRange> constraints = new ArrayList<IloRange>();
+
+			for(int i=0;i<this.refinements;i++){
+				//sub_constraint.addTerm(reward[i],probab[i]);
+				constraints.add(cplex.addGe(probab[i],this.beta*this.probab1[i]));
+			}
+			//constraints.add();
+
+			IloLinearNumExpr sumofprobabs = cplex.linearNumExpr();
+			for(int i=0;i<this.refinements;i++){
+				sumofprobabs.addTerm(1.0,probab[i]);
+			}
+			constraints.add(cplex.addEq(sumofprobabs, 1));
+
+			// display option
+			cplex.setParam(IloCplex.Param.Simplex.Display, 0);
+			Boolean result = cplex.solve();
+			Boolean finalres = false;
+			if(cplex.getStatus() == IloCplex.Status.Optimal)
+				finalres = true;
+			// solve
+			if (finalres) {
+				for (int i=0; i< this.refinements; i++){
+					//System.out.println("reward"  + reward[i] + " " + "Probab"+" " +cplex.getValue(probab[i]));
+					this.OptProbab[i] = cplex.getValue(probab[i]);
+				}
+				this.OptProbab[this.refinements] = cplex.getObjValue();
+			}
+			else {
+			//	System.out.println("Error!! Model not solved");
+				for( int i = 0 ; i < this.refinements ; i++ ){
+					this.OptProbab[i] = 1.0/refinements;
+				}
+				/*System.out.println("Settings " + beta);
+				for(int i =0 ; i< this.refinements; i++)
+					System.out.print(reward[i] + " ");
+				System.out.print("\n");
+				for(int i=0;i< this.refinements; i++)
+					System.out.print(probab1[i] + " ");
+				System.out.print("\n");*/
+				this.OptProbab[this.refinements] = -10000.0;
+			}
+
+			cplex.end();
+
+		}
+		catch (IloException exc) {
+			System.out.println("This is printing the error");
+			exc.printStackTrace();
+		}
+		return this.OptProbab;
+	}
+
+}
+
+
+
+I am using IBM's CPLEX for solving the LP.
