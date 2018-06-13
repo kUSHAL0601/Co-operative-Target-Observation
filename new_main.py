@@ -11,7 +11,7 @@ def mean(arr):
 	n=len(arr)
 	return sum(arr)/len(arr)
 
-no_observers_arr=[2,6,10,14,18]
+no_observers_arr=[2,6,10,14,18,20,50]
 no_targets_arr=[3,9,15,21,27,50,100]
 x_limit=150
 y_limit=150
@@ -161,7 +161,7 @@ for i in no_observers_arr:
 		sorted_observers=sorted(sorted_observers,key=lambda x: x.limit)
 		print()
 		print("New Main in iteration "+str(i))
-		count_new+=main_new(no_targets,no_observers,targets2,sorted_observers,0.5)
+		count_new+=main_new(no_targets,no_observers,targets2,sorted_observers,0.3)
 		print()
 		count_global_orig+=count_orig
 		count_global_new+=count_new
