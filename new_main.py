@@ -33,7 +33,7 @@ def initialize():
 	no_targets=no_targets_arr[RI(0,4)]
 	no_observers=no_observers_arr[RI(0,4)]
 	for i in range(no_targets):
-		targets.append(T(R()*150,R()*150,target_speed[RI(0,5)],R()*360))
+		targets.append(T(R()*150,R()*150,target_speed[RI(0,5)],R()*360,sensor_range[RI(0,4)]))
 	for i in range(no_observers):
 		observers.append(O(R()*150,R()*150,observer_speed,sensor_range[RI(0,4)]))
 	return (no_targets,no_observers,targets,observers)
@@ -42,12 +42,12 @@ def initialize_param(no_targets,no_observers):
 	targets=[]
 	observers=[]
 	for i in range(no_targets):
-		targets.append(T(R()*150,R()*150,target_speed[RI(0,5)],R()*360))
+		targets.append(T(R()*150,R()*150,target_speed[RI(0,5)],R()*360,sensor_range[RI(0,4)]))
 	for i in range(no_observers):
 		observers.append(O(R()*150,R()*150,observer_speed,sensor_range[RI(0,4)]))
 	return (no_targets,no_observers,targets,observers)
 
-def update():
+def update_for_observers():
 	temp_dict={}
 	for i in range(len(observers)):
 		temp_dict[i]=[]
@@ -57,13 +57,24 @@ def update():
 				temp_dict[i].append(j)
 	return temp_dict
 
+def update_for_targets():
+	temp_dict={}
+	for i in range(len(targets)):
+		temp_dict[i]=[]
+	for i in range(len(targets)):
+		for j in range(len(observers)):
+			if(targets[i].observer_in_range(observers[j])):
+				temp_dict[i].append(j)
+	return temp_dict
+
 def main_orig(no_targets,no_observers,targets,observers):
 	step=0
 	count=0
 	data_until_update=[]
 	while(step<=total_steps):
 		if(step%update_steps==0):
-			observer_target_dict=update()
+			observer_target_dict=update_for_observers()
+			target_observer_dict=update_for_targets()
 			for i in observer_target_dict:
 				temp_arr_x=[]
 				temp_arr_y=[]
@@ -80,11 +91,23 @@ def main_orig(no_targets,no_observers,targets,observers):
 					observers[i].update_target(alpha,explore,x_limit,y_limit,mean_x,mean_y)
 				else:
 					observers[i].update_target(1,1,x_limit,y_limit,0,0)
+
+			for i in target_observer_dict:
+				temp_arr_x=[]
+				temp_arr_y=[]
+				for j in target_observer_dict[i]:
+					temp_arr_x.append(observers[j].x)
+					temp_arr_y.append(observers[j].y)
+				if(len(temp_arr_x) and len(temp_arr_y)):
+					mean_x=mean(temp_arr_x)
+					mean_y=mean(temp_arr_y)
+					targets[i].update_target(x_limit,y_limit,mean_x,mean_y)
+
 		for i in observers:
 			i.update(x_limit,y_limit)
 		for i in targets:
 			i.update(x_limit,y_limit)
-		tmp_observer_target_dict=update()
+		tmp_observer_target_dict=update_for_observers()
 		tmp_arr=[]
 		for i in tmp_observer_target_dict:
 			for j in tmp_observer_target_dict[i]:
@@ -101,7 +124,8 @@ def main_new(no_targets,no_observers,targets,observers,threshold):
 	data_until_update=[]
 	while(step<=total_steps):
 		if(step%update_steps==0):
-			observer_target_dict=update()
+			observer_target_dict=update_for_observers()
+			target_observer_dict=update_for_targets()
 			targets_included={}
 			for i in range(no_targets):
 				targets_included[i]=0
@@ -130,11 +154,23 @@ def main_new(no_targets,no_observers,targets,observers,threshold):
 							targets_included[j]=1
 				else:
 					observers[i].update_target(1,1,x_limit,y_limit,0,0)
+
+			for i in target_observer_dict:
+				temp_arr_x=[]
+				temp_arr_y=[]
+				for j in target_observer_dict[i]:
+					temp_arr_x.append(observers[j].x)
+					temp_arr_y.append(observers[j].y)
+				if(len(temp_arr_x) and len(temp_arr_y)):
+					mean_x=mean(temp_arr_x)
+					mean_y=mean(temp_arr_y)
+					targets[i].update_target(x_limit,y_limit,mean_x,mean_y)
+
 		for i in observers:
 			i.update(x_limit,y_limit)
 		for i in targets:
 			i.update(x_limit,y_limit)
-		tmp_observer_target_dict=update()
+		tmp_observer_target_dict=update_for_observers()
 		tmp_arr=[]
 		for i in tmp_observer_target_dict:
 			for j in tmp_observer_target_dict[i]:
