@@ -28,6 +28,8 @@ class TargetsClass:
 			temp_x=self.x+(random()*(x_limit/2)-(x_limit/4))
 		if(temp_y>y_limit or temp_y<-y_limit):
 			temp_y=self.y+(random()*(x_limit/2)-(x_limit/4))
+		temp_x=0.7*temp_x + 0.3*(self.x+(random()*(x_limit/2)-(x_limit/4)))
+		temp_y=0.7*temp_x + 0.3*(self.y+(random()*(y_limit/2)-(y_limit/4)))
 		self.target_x=temp_x
 		self.target_y=temp_y
 		self.angle=-math.atan((temp_y-self.y)/(temp_x-self.x))
@@ -43,6 +45,12 @@ class TargetsClass:
 
 	def observer_in_range(self,observer):
 		if(math.sqrt(pow(observer.x-self.x,2)+pow(observer.y-self.y,2))<=self.limit):
+			return True
+		else:
+			return False
+
+	def obstacle_in_range(self,obstacle_part):
+		if(math.sqrt(pow(obstacle_part.x-self.x,2)+pow(obstacle_part.y-self.y,2))<=self.limit):
 			return True
 		else:
 			return False

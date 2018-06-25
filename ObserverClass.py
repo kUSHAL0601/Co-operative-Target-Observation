@@ -38,3 +38,9 @@ class ObserverClass:
 			return True
 		else:
 			return False
+
+	def obstacle_in_range(self,obstacle_part):
+		if(math.sqrt(pow(obstacle_part.x-self.x,2)+pow(obstacle_part.y-self.y,2))<=self.limit):
+			return True
+		else:
+			return False
