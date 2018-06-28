@@ -1,0 +1,1 @@
++ Go to obstacle which is nearest or which has greater length

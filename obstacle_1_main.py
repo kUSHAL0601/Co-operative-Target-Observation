@@ -8,6 +8,20 @@ from BRLP_CTO import BRLP_CTO
 from reward import reward
 from math import ceil,sin,cos
 
+def opp(l1x,l1y,l2x,l2y,p1x,p1y,p2x,p2y):
+	return ((l1y-l2y)*(p1x-l1x)+(l2x-l1x)*(p1y-l1y))*((l1y-l2y)*(p2x-l1x)+(l2x-l1x)*(p2y-l1y))<0
+
+def between(ox,oy,tx,ty,l1x,l1y,l2x,l2y):
+	'''
+	ox,oy are observers co-ordinates
+	tx,ty are targets coordinates
+	l1x,l1y,l2x,l2y are end points of obstacles
+	bx,by is any point between them
+	'''
+	bx=(l1x+l2x)/2
+	by=(l1y+l2y)/2
+	return ((l1y-oy)*(tx-l1x)+(ox-l1x)*(ty-l1y))*((l1y-oy)*(bx-l1x)+(ox-l1x)*(by-l1y))>=0 and ((l2y-oy)*(tx-l2x)+(ox-l2x)*(ty-l2y))*((l2y-oy)*(bx-l2x)+(ox-l2x)*(by-l2y))>=0
+
 def mean(arr):
 	n=len(arr)
 	return sum(arr)/len(arr)
@@ -54,31 +68,47 @@ def initialize():
 
 def update_for_observers():
 	temp_dict={}
+	temp_dict1={}
 	for i in range(len(observers)):
 		temp_dict[i]=[]
+		temp_dict1[i]=[]
 	for i in range(len(observers)):
+		for j in range(len(obstacles)):
+			for k in obstacles[j][1]:
+				if(observers[i].obstacle_in_range(k)):
+					temp_dict1[i].append(j)
+					break
 		for j in range(len(targets)):
 			if(observers[i].enemy_in_range(targets[j])):
-				temp_dict[i].append(j)
-	return temp_dict
+				for k in temp_dict1[i]:
+					if not between(observers[i].x,observers[i].y,targets[j].x,targets[j].y,obstacles[k][1][0].x,obstacles[k][1][0].y,obstacles[k][1][obstacles[k][0]-1].x,obstacles[k][1][obstacles[k][0]-1].y):
+						temp_dict[i].append(j)
+	return [temp_dict,temp_dict1]
 
 def update_for_targets():
 	temp_dict={}
+	temp_dict1={}
 	for i in range(len(targets)):
 		temp_dict[i]=[]
+		temp_dict1[i]=[]
 	for i in range(len(targets)):
 		for j in range(len(observers)):
 			if(targets[i].observer_in_range(observers[j])):
 				temp_dict[i].append(j)
-	return temp_dict
+		for j in range(len(obstacles)):
+			for k in obstacles[j][1]:
+				if(targets[i].obstacle_in_range(k)):
+					temp_dict1[i].append(j)
+					break
+	return [temp_dict,temp_dict1]
 
-def main_obstacle_1(no_targets,no_observers,targets,observers):
+def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obstacles):
 	step=0
 	data_until_update=[]
 	while(step<=total_steps):
 		if(step%update_steps==0):
-			observer_target_dict=update_for_observers()
-			target_observer_dict=update_for_targets()
+			[observer_target_dict,observer_obstacle_dict]=update_for_observers()
+			[target_observer_dict,target_obstacle_dict]=update_for_targets()
 			for i in observer_target_dict:
 				temp_arr_x=[]
 				temp_arr_y=[]
@@ -89,7 +119,7 @@ def main_obstacle_1(no_targets,no_observers,targets,observers):
 					mean_x=mean(temp_arr_x)
 					mean_y=mean(temp_arr_y)
 					explore=pow(1/(len(observer_target_dict[i])+1),2)
-					rwrd=reward(observers[i],targets,observer_target_dict[i],x_limit,y_limit,explore,mean_x,mean_y)
+					rwrd=reward(observers[i],targets,observer_target_dict[i],obstacles,observer_obstacle_dict[i],x_limit,y_limit,explore,mean_x,mean_y)
 					E_min=LP_CTO(rwrd,1.0,template_probability_distribution)[0]
 					alpha=BRLP_CTO(rwrd,template_probability_distribution,E_min)
 					observers[i].update_target(alpha,explore,x_limit,y_limit,mean_x,mean_y)
@@ -102,7 +132,21 @@ def main_obstacle_1(no_targets,no_observers,targets,observers):
 				for j in target_observer_dict[i]:
 					temp_arr_x.append(observers[j].x)
 					temp_arr_y.append(observers[j].y)
-				if(len(temp_arr_x) and len(temp_arr_y)):
+				target_obstacle_dict[i].sort(reverse=True,key=lambda i: obstacles[i][0])
+				# print(i,target_obstacle_dict[i])
+				# for i in obstacles[target_obstacle_dict[0]][1]:
+				# 	obs_arr_x.append()
+				if(len(target_obstacle_dict[i])):
+					obst_idx=target_obstacle_dict[i][0]
+					sx=0
+					sy=0
+					for j in obstacles[obst_idx][1]:
+						sx+=j.x
+						sy+=j.y
+					n=obstacles[obst_idx][0]
+					# print("Found obstacle at ",sx/n,sy/n)
+					targets[i].update_target_obst(x_limit,y_limit,sx/n,sy/n)
+				elif(len(temp_arr_x) and len(temp_arr_y)):
 					mean_x=mean(temp_arr_x)
 					mean_y=mean(temp_arr_y)
 					targets[i].update_target(x_limit,y_limit,mean_x,mean_y)
@@ -112,7 +156,21 @@ def main_obstacle_1(no_targets,no_observers,targets,observers):
 		for i in targets:
 			i.update(x_limit,y_limit)
 		step+=1
+		# print(step)
+		c=0
+		for i in obstacles:
+			c+=i[0]
+		c+=len(targets)
+		c+=len(observers)
+		print(c)
 		print(step)
+		for i in targets:
+			print("H",float(i.x),float(i.y),0.0)
+		for i in observers:
+			print("N",float(i.x),float(i.y),0.0)
+		for j in obstacles:
+			for i in j[1]:
+				print("O",float(i.x),float(i.y),0.0)
 
 (no_targets,no_observers,no_obstacles,targets,observers,obstacles)=initialize()
 # c=0
@@ -129,4 +187,5 @@ def main_obstacle_1(no_targets,no_observers,targets,observers):
 # for j in obstacles:
 # 	for i in j[1]:
 # 		print("O",float(i.x),float(i.y),0.0)
-# # main_obstacle_1(no_targets,no_observers,targets,observers)
+# print(obstacles)
+main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obstacles)

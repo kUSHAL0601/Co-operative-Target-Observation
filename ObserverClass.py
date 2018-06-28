@@ -11,6 +11,17 @@ class ObserverClass:
 	def update_target(self,alpha,explore,x_limit,y_limit,mean_x,mean_y):
 		temp_x=self.x*(1-alpha)+alpha*explore*(self.x+(random()*(x_limit/2)-(x_limit/4)))+alpha*(1-explore)*mean_x
 		temp_y=self.y*(1-alpha)+alpha*explore*(self.y+(random()*(y_limit/2)-(y_limit/4)))+alpha*(1-explore)*mean_y
+		flag=0
+		# if(explore==1):
+		# 	if(self.x>x_limit-25 or self.x<-x_limit+25):
+		# 		temp_x=-self.x
+		# 		flag=1
+		# 	if(self.y>y_limit-25 or self.y<-y_limit+25):
+		# 		temp_y=-self.y
+		# 		flag=1
+		# if(flag==1):
+		# 	self.angle=math.atan((temp_y-self.y)/(temp_x-self.x))
+		# 	return
 		if(temp_x>x_limit or temp_x<-x_limit):
 			temp_x=self.x+(random()*(x_limit/2)-(x_limit/4))
 		if(temp_y>y_limit or temp_y<-y_limit):

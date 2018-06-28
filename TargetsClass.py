@@ -34,6 +34,19 @@ class TargetsClass:
 		self.target_y=temp_y
 		self.angle=-math.atan((temp_y-self.y)/(temp_x-self.x))
 
+	def update_target_obst(self,x_limit,y_limit,mean_x,mean_y):
+		temp_x=mean_x
+		temp_y=mean_y
+		# if(temp_x>x_limit or temp_x<-x_limit):
+		# 	temp_x=self.x+(random()*(x_limit/2)-(x_limit/4))
+		# if(temp_y>y_limit or temp_y<-y_limit):
+		# 	temp_y=self.y+(random()*(x_limit/2)-(x_limit/4))
+		# temp_x=0.7*temp_x + 0.3*(self.x+(random()*(x_limit/2)-(x_limit/4)))
+		# temp_y=0.7*temp_x + 0.3*(self.y+(random()*(y_limit/2)-(y_limit/4)))
+		self.target_x=temp_x
+		self.target_y=temp_y
+		self.angle=math.atan((temp_y-self.y)/(temp_x-self.x))
+
 	def predict(self,x_limit,y_limit):
 		temp_x=self.x+self.speed*math.cos(self.angle)
 		temp_y=self.y+self.speed*math.sin(self.angle)

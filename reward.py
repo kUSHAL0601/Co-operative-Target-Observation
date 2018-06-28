@@ -1,7 +1,7 @@
 from random import random
 import math
 
-def reward(observer,targets,targets_to_consider,x_limit,y_limit,explore,mean_x,mean_y):
+def reward(observer,targets,targets_to_consider,obstacles,obstacles_to_consider,x_limit,y_limit,explore,mean_x,mean_y):
 	rewards=[]
 	for alphas in range(1,11):
 		reward=0
@@ -11,7 +11,12 @@ def reward(observer,targets,targets_to_consider,x_limit,y_limit,explore,mean_x,m
 		for i in targets_to_consider:
 			(predict_x,predict_y)=targets[i].predict(x_limit,y_limit)
 			if(math.sqrt(pow(temp_x-predict_x,2)+pow(temp_y-predict_y,2))<=observer.limit):
-				reward+=1
+				reward+=0.9
+		for i in obstacles_to_consider:
+			# print("OTC",obstacles[i])
+			for j in obstacles[i][1]:
+				if(math.sqrt(pow(temp_x-j.x,2)+pow(temp_y-j.y,2))<=observer.limit):
+					reward+=0.1
 		rewards.append(reward)
 #	print(rewards)
 	return rewards
