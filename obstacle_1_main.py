@@ -9,6 +9,9 @@ from reward import reward
 from math import ceil,sin,cos
 
 def opp(l1x,l1y,l2x,l2y,p1x,p1y,p2x,p2y):
+	'''
+	p1,p2 are on opposite sides of line defined by l1,l2
+	'''
 	return ((l1y-l2y)*(p1x-l1x)+(l2x-l1x)*(p1y-l1y))*((l1y-l2y)*(p2x-l1x)+(l2x-l1x)*(p2y-l1y))<0
 
 def between(ox,oy,tx,ty,l1x,l1y,l2x,l2y):
@@ -81,7 +84,7 @@ def update_for_observers():
 		for j in range(len(targets)):
 			if(observers[i].enemy_in_range(targets[j])):
 				for k in temp_dict1[i]:
-					if not between(observers[i].x,observers[i].y,targets[j].x,targets[j].y,obstacles[k][1][0].x,obstacles[k][1][0].y,obstacles[k][1][obstacles[k][0]-1].x,obstacles[k][1][obstacles[k][0]-1].y):
+					if opp(obstacles[k][1][0].x,obstacles[k][1][0].y,obstacles[k][1][obstacles[k][0]-1].x,obstacles[k][1][obstacles[k][0]-1].y,observers[i].x,observers[i].y,targets[j].x,targets[j].y) and (not between(observers[i].x,observers[i].y,targets[j].x,targets[j].y,obstacles[k][1][0].x,obstacles[k][1][0].y,obstacles[k][1][obstacles[k][0]-1].x,obstacles[k][1][obstacles[k][0]-1].y)):
 						temp_dict[i].append(j)
 	return [temp_dict,temp_dict1]
 
