@@ -1,5 +1,6 @@
 import math
 from random import random
+from arc_tan import arc_tan as tan_inv
 
 class TargetsClass:
 	def __init__(self,position_x,position_y,speed,angle,sensor_range):
@@ -32,7 +33,7 @@ class TargetsClass:
 		temp_y=0.7*temp_x + 0.3*(self.y+(random()*(y_limit/2)-(y_limit/4)))
 		self.target_x=temp_x
 		self.target_y=temp_y
-		self.angle=-math.atan((temp_y-self.y)/(temp_x-self.x))
+		self.angle=-tan_inv((temp_y-self.y),(temp_x-self.x))
 
 	def update_target_obst(self,x_limit,y_limit,mean_x,mean_y):
 		temp_x=mean_x
@@ -45,7 +46,7 @@ class TargetsClass:
 		# temp_y=0.7*temp_x + 0.3*(self.y+(random()*(y_limit/2)-(y_limit/4)))
 		self.target_x=temp_x
 		self.target_y=temp_y
-		self.angle=math.atan((temp_y-self.y)/(temp_x-self.x))
+		self.angle=tan_inv((temp_y-self.y),(temp_x-self.x))
 
 	def predict(self,x_limit,y_limit):
 		temp_x=self.x+self.speed*math.cos(self.angle)

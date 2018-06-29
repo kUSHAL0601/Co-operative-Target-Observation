@@ -1,5 +1,6 @@
 import math
 from random import random
+from arc_tan import arc_tan as tan_inv
 
 class ObserverClass:
 	def __init__(self,position_x,position_y,speed,sensor_range):
@@ -11,24 +12,36 @@ class ObserverClass:
 	def update_target(self,alpha,explore,x_limit,y_limit,mean_x,mean_y):
 		temp_x=self.x*(1-alpha)+alpha*explore*(self.x+(random()*(x_limit/2)-(x_limit/4)))+alpha*(1-explore)*mean_x
 		temp_y=self.y*(1-alpha)+alpha*explore*(self.y+(random()*(y_limit/2)-(y_limit/4)))+alpha*(1-explore)*mean_y
-		flag=0
+		# flag=0
 		# if(explore==1):
 		# 	if(self.x>x_limit-25 or self.x<-x_limit+25):
 		# 		temp_x=-self.x
 		# 		flag=1
+		# 	else:
+		# 		temp_x=self.x
 		# 	if(self.y>y_limit-25 or self.y<-y_limit+25):
 		# 		temp_y=-self.y
 		# 		flag=1
+		# 	else:
+		# 		temp_y=self.y
 		# if(flag==1):
-		# 	self.angle=math.atan((temp_y-self.y)/(temp_x-self.x))
+		# 	self.angle=tan_inv(temp_y,temp_x)
 		# 	return
-		if(temp_x>x_limit or temp_x<-x_limit):
-			temp_x=self.x+(random()*(x_limit/2)-(x_limit/4))
-		if(temp_y>y_limit or temp_y<-y_limit):
-			temp_y=self.y+(random()*(x_limit/2)-(x_limit/4))
+		# temp_x=self.x*(1-alpha)+alpha*explore*(self.x+(random()*(x_limit/2)-(x_limit/4)))+alpha*(1-explore)*mean_x
+		# temp_y=self.y*(1-alpha)+alpha*explore*(self.y+(random()*(y_limit/2)-(y_limit/4)))+alpha*(1-explore)*mean_y
+		if(temp_x>x_limit):
+			temp_x=-x_limit
+		elif(temp_x<-x_limit):
+			temp_x=x_limit
+		if(temp_y>y_limit):
+			temp_y=-y_limit
+		elif(temp_y<-y_limit):
+			temp_y=y_limit
+		# if(temp_y>y_limit or temp_y<-y_limit):
+		# 	temp_y=self.y+(random()*(x_limit/2)-(x_limit/4))
 		self.target_x=temp_x
 		self.target_y=temp_y
-		self.angle=math.atan((temp_y-self.y)/(temp_x-self.x))
+		self.angle=tan_inv((temp_y-self.y),(temp_x-self.x))
 
 	def update(self,x_limit,y_limit):
 		temp_x=self.x+self.speed*math.cos(self.angle)
