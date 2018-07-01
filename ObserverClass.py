@@ -29,16 +29,12 @@ class ObserverClass:
 		# 	return
 		# temp_x=self.x*(1-alpha)+alpha*explore*(self.x+(random()*(x_limit/2)-(x_limit/4)))+alpha*(1-explore)*mean_x
 		# temp_y=self.y*(1-alpha)+alpha*explore*(self.y+(random()*(y_limit/2)-(y_limit/4)))+alpha*(1-explore)*mean_y
-		if(temp_x>x_limit):
-			temp_x=-x_limit
-		elif(temp_x<-x_limit):
-			temp_x=x_limit
-		if(temp_y>y_limit):
-			temp_y=-y_limit
-		elif(temp_y<-y_limit):
-			temp_y=y_limit
-		# if(temp_y>y_limit or temp_y<-y_limit):
-		# 	temp_y=self.y+(random()*(x_limit/2)-(x_limit/4))
+		if(temp_x>x_limit or temp_x<-x_limit):
+			while(not (temp_x>x_limit or temp_x<-x_limit)):
+				temp_x=self.x+(random()*(x_limit/2)-(x_limit/4))
+		if(temp_y>y_limit or temp_y<-y_limit):
+			while(not (temp_y>y_limit or temp_y<-y_limit)):
+				temp_y=self.y+(random()*(x_limit/2)-(x_limit/4))
 		self.target_x=temp_x
 		self.target_y=temp_y
 		self.angle=tan_inv((temp_y-self.y),(temp_x-self.x))
