@@ -1,0 +1,1 @@
++ It is good for targets generally, but bad random values may lead to very bad results.

@@ -47,7 +47,7 @@ def initialize_param(no_targets,no_observers):
 		observers.append(O(R()*150,R()*150,observer_speed,sensor_range[RI(0,4)]))
 	return (no_targets,no_observers,targets,observers)
 
-def update_for_observers():
+def update_for_observers(observers,targets):
 	temp_dict={}
 	for i in range(len(observers)):
 		temp_dict[i]=[]
@@ -57,7 +57,7 @@ def update_for_observers():
 				temp_dict[i].append(j)
 	return temp_dict
 
-def update_for_targets():
+def update_for_targets(observers,targets):
 	temp_dict={}
 	for i in range(len(targets)):
 		temp_dict[i]=[]
@@ -73,8 +73,8 @@ def main_orig(no_targets,no_observers,targets,observers):
 	data_until_update=[]
 	while(step<=total_steps):
 		if(step%update_steps==0):
-			observer_target_dict=update_for_observers()
-			target_observer_dict=update_for_targets()
+			observer_target_dict=update_for_observers(observers,targets)
+			target_observer_dict=update_for_targets(observers,targets)
 			for i in observer_target_dict:
 				temp_arr_x=[]
 				temp_arr_y=[]
@@ -107,7 +107,7 @@ def main_orig(no_targets,no_observers,targets,observers):
 			i.update(x_limit,y_limit)
 		for i in targets:
 			i.update(x_limit,y_limit)
-		tmp_observer_target_dict=update_for_observers()
+		tmp_observer_target_dict=update_for_observers(observers,targets)
 		tmp_arr=[]
 		for i in tmp_observer_target_dict:
 			for j in tmp_observer_target_dict[i]:
@@ -124,8 +124,8 @@ def main_new(no_targets,no_observers,targets,observers,threshold):
 	data_until_update=[]
 	while(step<=total_steps):
 		if(step%update_steps==0):
-			observer_target_dict=update_for_observers()
-			target_observer_dict=update_for_targets()
+			observer_target_dict=update_for_observers(observers,targets)
+			target_observer_dict=update_for_targets(observers,targets)
 			targets_included={}
 			for i in range(no_targets):
 				targets_included[i]=0
@@ -170,7 +170,7 @@ def main_new(no_targets,no_observers,targets,observers,threshold):
 			i.update(x_limit,y_limit)
 		for i in targets:
 			i.update(x_limit,y_limit)
-		tmp_observer_target_dict=update_for_observers()
+		tmp_observer_target_dict=update_for_observers(observers,targets)
 		tmp_arr=[]
 		for i in tmp_observer_target_dict:
 			for j in tmp_observer_target_dict[i]:
@@ -197,7 +197,7 @@ for i in no_observers_arr:
 		sorted_observers=sorted(sorted_observers,key=lambda x: x.limit)
 		print()
 		print("New Main in iteration "+str(i))
-		count_new+=main_new(no_targets,no_observers,targets2,sorted_observers,0.3)
+		count_new+=main_new(no_targets,no_observers,targets2,sorted_observers,0.5)
 		print()
 		count_global_orig+=count_orig
 		count_global_new+=count_new
