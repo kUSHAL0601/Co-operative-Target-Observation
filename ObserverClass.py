@@ -8,6 +8,10 @@ class ObserverClass:
 		self.y=position_y
 		self.speed=speed
 		self.limit=sensor_range
+		self.obstacle=-1
+		self.goAround=-1
+		self.old_pos_x=0
+		self.old_pos_y=0
 
 	def update_target(self,alpha,explore,x_limit,y_limit,mean_x,mean_y):
 		temp_x=self.x*(1-alpha)+alpha*explore*(self.x+(random()*(x_limit/2)-(x_limit/4)))+alpha*(1-explore)*mean_x
@@ -64,3 +68,14 @@ class ObserverClass:
 			return True
 		else:
 			return False
+
+	def update_goAround(obstacle):
+		if(self.goAround==1):
+			self.x+=sin(tan_inv(obstacle.y-self.y/obstacle.x-self.x))
+			self.y+=cos(tan_inv(obstacle.y-self.y/obstacle.x-self.x))
+			if((pow(abs(self.x-obstacle.x),2)+pow(abs(self.y-obstacle.y),2))>=100):
+				self.goAround=2
+			return
+		if(self.goAround==2):
+			self.x+=sin(tan_inv(self.target_y-self.y/self.target_x-self.x))
+			self.y+=cos(tan_inv(self.target_y-self.y/self.target_x-self.x))

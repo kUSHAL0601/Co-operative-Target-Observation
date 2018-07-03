@@ -176,19 +176,4 @@ def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obsta
 				print("O",float(i.x),float(i.y),0.0)
 
 (no_targets,no_observers,no_obstacles,targets,observers,obstacles)=initialize()
-# c=0
-# for i in obstacles:
-# 	c+=i[0]
-# c+=len(targets)
-# c+=len(observers)
-# print(c)
-# print(0)
-# for i in targets:
-# 	print("H",float(i.x),float(i.y),0.0)
-# for i in observers:
-# 	print("N",float(i.x),float(i.y),0.0)
-# for j in obstacles:
-# 	for i in j[1]:
-# 		print("O",float(i.x),float(i.y),0.0)
-# print(obstacles)
 main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obstacles)

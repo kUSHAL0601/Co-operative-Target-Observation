@@ -286,7 +286,7 @@ for k in range(5):
 			observers1=deepcopy(observers)
 			mo=main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
 			m=main_orig(no_targets,no_observers,targets,observers)
-			print(i,j,"ORIG",m,"OBST",mo)
+			print(i,j,m-mo)
 			orig+=m
 			obs+=mo
 print("FINAL",orig,obs)
