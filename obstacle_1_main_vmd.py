@@ -136,10 +136,11 @@ def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obsta
 					temp_arr_x.append(observers[j].x)
 					temp_arr_y.append(observers[j].y)
 				target_obstacle_dict[i].sort(reverse=True,key=lambda i: obstacles[i][0])
-				# print(i,target_obstacle_dict[i])
-				# for i in obstacles[target_obstacle_dict[0]][1]:
-				# 	obs_arr_x.append()
-				if(len(target_obstacle_dict[i])):
+				if(len(temp_arr_x) and len(temp_arr_y)):
+					mean_x=mean(temp_arr_x)
+					mean_y=mean(temp_arr_y)
+					targets[i].update_target(x_limit,y_limit,mean_x,mean_y)
+				elif(len(target_obstacle_dict[i])):
 					obst_idx=target_obstacle_dict[i][0]
 					sx=0
 					sy=0
@@ -149,10 +150,6 @@ def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obsta
 					n=obstacles[obst_idx][0]
 					# print("Found obstacle at ",sx/n,sy/n)
 					targets[i].update_target_obst(x_limit,y_limit,sx/n,sy/n)
-				elif(len(temp_arr_x) and len(temp_arr_y)):
-					mean_x=mean(temp_arr_x)
-					mean_y=mean(temp_arr_y)
-					targets[i].update_target(x_limit,y_limit,mean_x,mean_y)
 
 		for i in observers:
 			i.update(x_limit,y_limit)

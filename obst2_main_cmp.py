@@ -6,7 +6,7 @@ from random import random as R
 from LP_CTO import LP_CTO
 from BRLP_CTO import BRLP_CTO
 from reward import reward
-from reward_obs_1 import reward_obs_1
+# from reward_obs_1 import reward_obs_1
 from math import ceil,sin,cos
 from main import main_orig
 from copy import deepcopy
@@ -140,14 +140,24 @@ def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obsta
 			for i in observer_target_dict:
 				temp_arr_x=[]
 				temp_arr_y=[]
+				obs_arr_x=[]
+				obs_arr_y=[]
 				for j in observer_target_dict[i]:
 					temp_arr_x.append(targets[j].x)
 					temp_arr_y.append(targets[j].y)
-				if(len(temp_arr_x) and len(temp_arr_y)):
-					mean_x=mean(temp_arr_x)
-					mean_y=mean(temp_arr_y)
+				for j in observer_obstacle_dict[i]:
+					for k in obstacles[j][1]:
+						obs_arr_x.append(k.x)
+						obs_arr_y.append(k.y)
+				if(len(temp_arr_x)):
+					if(len(obs_arr_x)):
+						mean_x=mean(temp_arr_x)*0.9+mean(obs_arr_x)*0.1
+						mean_y=mean(temp_arr_y)*0.9+mean(obs_arr_y)*0.1
+					else:
+						mean_x=mean(temp_arr_x)
+						mean_y=mean(temp_arr_y)
 					explore=pow(1/(len(observer_target_dict[i])+1),2)
-					rwrd=reward_obs_1(observers[i],targets,observer_target_dict[i],obstacles,observer_obstacle_dict[i],x_limit,y_limit,explore,mean_x,mean_y)
+					rwrd=reward(observers[i],targets,observer_target_dict[i],x_limit,y_limit,explore,mean_x,mean_y)
 					E_min=LP_CTO(rwrd,1.0,template_probability_distribution)[0]
 					alpha=BRLP_CTO(rwrd,template_probability_distribution,E_min)
 					observers[i].update_target(alpha,explore,x_limit,y_limit,mean_x,mean_y)
@@ -161,11 +171,7 @@ def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obsta
 					temp_arr_x.append(observers[j].x)
 					temp_arr_y.append(observers[j].y)
 				target_obstacle_dict[i].sort(reverse=True,key=lambda i: obstacles[i][0])
-				if(len(temp_arr_x) and len(temp_arr_y)):
-					mean_x=mean(temp_arr_x)
-					mean_y=mean(temp_arr_y)
-					targets[i].update_target(x_limit,y_limit,mean_x,mean_y)
-				elif(len(target_obstacle_dict[i])):
+				if(len(target_obstacle_dict[i])):
 					obst_idx=target_obstacle_dict[i][0]
 					sx=0
 					sy=0
@@ -175,6 +181,10 @@ def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obsta
 					n=obstacles[obst_idx][0]
 					# print("Found obstacle at ",sx/n,sy/n)
 					targets[i].update_target_obst(x_limit,y_limit,sx/n,sy/n)
+				elif(len(temp_arr_x) and len(temp_arr_y)):
+					mean_x=mean(temp_arr_x)
+					mean_y=mean(temp_arr_y)
+					targets[i].update_target(x_limit,y_limit,mean_x,mean_y)
 
 		for i in observers:
 			i.update(x_limit,y_limit)
