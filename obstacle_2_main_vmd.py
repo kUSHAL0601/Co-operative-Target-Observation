@@ -105,7 +105,7 @@ def update_for_targets():
 					break
 	return [temp_dict,temp_dict1]
 
-def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obstacles):
+def main_obstacle_2(no_targets,no_observers,no_obstacles,targets,observers,obstacles):
 	step=0
 	data_until_update=[]
 	while(step<=total_steps):
@@ -115,12 +115,22 @@ def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obsta
 			for i in observer_target_dict:
 				temp_arr_x=[]
 				temp_arr_y=[]
+				obs_arr_x=[]
+				obs_arr_y=[]
 				for j in observer_target_dict[i]:
 					temp_arr_x.append(targets[j].x)
 					temp_arr_y.append(targets[j].y)
-				if(len(temp_arr_x) and len(temp_arr_y)):
-					mean_x=mean(temp_arr_x)
-					mean_y=mean(temp_arr_y)
+				for j in observer_obstacle_dict[i]:
+					for k in obstacles[j][1]:
+						obs_arr_x.append(k.x)
+						obs_arr_y.append(k.y)
+				if(len(temp_arr_x)):
+					if(len(obs_arr_x)):
+						mean_x=mean(temp_arr_x)*0.9+mean(obs_arr_x)*0.1
+						mean_y=mean(temp_arr_y)*0.9+mean(obs_arr_y)*0.1
+					else:
+						mean_x=mean(temp_arr_x)
+						mean_y=mean(temp_arr_y)
 					explore=pow(1/(len(observer_target_dict[i])+1),2)
 					rwrd=reward(observers[i],targets,observer_target_dict[i],x_limit,y_limit,explore,mean_x,mean_y)
 					E_min=LP_CTO(rwrd,1.0,template_probability_distribution)[0]
@@ -176,4 +186,4 @@ def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obsta
 				print("O",float(i.x),float(i.y),0.0)
 
 (no_targets,no_observers,no_obstacles,targets,observers,obstacles)=initialize()
-main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
+main_obstacle_2(no_targets,no_observers,no_obstacles,targets,observers,obstacles)

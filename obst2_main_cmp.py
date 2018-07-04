@@ -32,8 +32,10 @@ def mean(arr):
 	n=len(arr)
 	return sum(arr)/len(arr)
 
-no_observers_arr=[2,6,10,14,18]
-no_targets_arr=[3,9,15,21,27]
+# no_observers_arr=[2,6,10,14,18]
+# no_targets_arr=[3,9,15,21,27]
+no_observers_arr=[2,6,10,14,18,20,50]
+no_targets_arr=[3,9,15,21,27,50,100]
 x_limit=150
 y_limit=150
 target_speed=[0.2,0.5,0.8,1.0,1.2,1.5]
@@ -129,7 +131,7 @@ def update_for_targets(observers,targets,obstacles):
 					break
 	return [temp_dict,temp_dict1]
 
-def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obstacles):
+def main_obstacle_2(no_targets,no_observers,no_obstacles,targets,observers,obstacles):
 	step=0
 	data_until_update=[]
 	total_count_obst=0
@@ -276,7 +278,7 @@ for k in range(5):
 			no_targets,no_observers,no_obstacles,targets,observers,obstacles=initialize_param(j,i)
 			targets1=deepcopy(targets)
 			observers1=deepcopy(observers)
-			mo=main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
+			mo=main_obstacle_2(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
 			m=main_orig(no_targets,no_observers,targets,observers)
 			print(i,j,m-mo)
 			orig+=m
