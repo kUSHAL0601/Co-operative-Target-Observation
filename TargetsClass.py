@@ -68,3 +68,14 @@ class TargetsClass:
 			return True
 		else:
 			return False
+
+	def update_goAround(obstacle):
+		if(self.goAround==1):
+			self.x+=sin(tan_inv(obstacle.y-self.y/obstacle.x-self.x))
+			self.y+=cos(tan_inv(obstacle.y-self.y/obstacle.x-self.x))
+			if((pow(abs(self.x-obstacle.x),2)+pow(abs(self.y-obstacle.y),2))>=100):
+				self.goAround=2
+			return
+		if(self.goAround==2):
+			self.x+=sin(tan_inv(self.target_y-self.y/self.target_x-self.x))
+			self.y+=cos(tan_inv(self.target_y-self.y/self.target_x-self.x))
