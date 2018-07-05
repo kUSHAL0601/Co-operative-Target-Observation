@@ -274,15 +274,15 @@ def main_orig(no_targets,no_observers,targets,observers):
 # ORIGINAL MAIN END
 orig=0
 obs=0
-for k in range(5):
+for k in range(30):
 	for i in no_observers_arr:
 		for j in no_targets_arr:
 			no_targets,no_observers,no_obstacles,targets,observers,obstacles=initialize_param(j,i)
 			targets1=deepcopy(targets)
 			observers1=deepcopy(observers)
 			mo=main_obstacle_3(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
+			prin(i,j,m,mo,m-mo)
 			m=main_orig(no_targets,no_observers,targets,observers)
-			print(i,j,m-mo)
 			orig+=m
 			obs+=mo
 print("FINAL",orig,obs)

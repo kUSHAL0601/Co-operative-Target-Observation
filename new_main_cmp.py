@@ -182,24 +182,25 @@ def main_new(no_targets,no_observers,targets,observers,threshold):
 	return count
 count_global_orig=0
 count_global_new=0
-for i in no_observers_arr:
-	for j in no_targets_arr:
-		count_orig=0
-		count_new=0
-		(no_targets,no_observers,targets,observers)=initialize_param(j,i)
-		targets1=deepcopy(targets)
-		targets2=deepcopy(targets)
-		observers1=deepcopy(observers)
-		# print("Targets, Observers",no_targets,no_observers)
-		# print("Main in iteration "+str(i))
-		count_orig+=main_orig(no_targets,no_observers,targets1,observers1)
-		sorted_observers=deepcopy(observers)
-		sorted_observers=sorted(sorted_observers,key=lambda x: x.limit)
-		# print()
-		# print("New Main in iteration "+str(i))
-		count_new+=main_new(no_targets,no_observers,targets2,sorted_observers,0.2)
-		# print()
-		count_global_orig+=count_orig
-		count_global_new+=count_new
-		print("Final count orig and new:",count_orig,count_new,"when targets,observers",j,i)
+for k in range(30):
+	for i in no_observers_arr:
+		for j in no_targets_arr:
+			count_orig=0
+			count_new=0
+			(no_targets,no_observers,targets,observers)=initialize_param(j,i)
+			targets1=deepcopy(targets)
+			targets2=deepcopy(targets)
+			observers1=deepcopy(observers)
+			# print("Targets, Observers",no_targets,no_observers)
+			# print("Main in iteration "+str(i))
+			count_orig+=main_orig(no_targets,no_observers,targets1,observers1)
+			sorted_observers=deepcopy(observers)
+			sorted_observers=sorted(sorted_observers,key=lambda x: x.limit)
+			# print()
+			# print("New Main in iteration "+str(i))
+			count_new+=main_new(no_targets,no_observers,targets2,sorted_observers,0.2)
+			# print()
+			count_global_orig+=count_orig
+			count_global_new+=count_new
+			print("Final count orig and new:",count_orig,count_new,"when targets,observers",j,i)
 print("Final count orig,new",count_global_orig,count_global_new)
