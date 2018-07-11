@@ -1,4 +1,0 @@
-[cli]
-bears = SpaceConsistencyBear
-files = xyz.py
-use_spaces = True

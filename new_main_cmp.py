@@ -182,7 +182,7 @@ def main_new(no_targets,no_observers,targets,observers,threshold):
 	return count
 count_global_orig=0
 count_global_new=0
-for k in range(30):
+for k in range(5):
 	for i in no_observers_arr:
 		for j in no_targets_arr:
 			count_orig=0
