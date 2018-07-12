@@ -12,7 +12,7 @@ def mean(arr):
 	n=len(arr)
 	return sum(arr)/len(arr)
 
-no_observers_arr=[2,6,10,14,18,20,50,100,150,200]
+no_observers_arr=[2,5,10,14,18,20,50,100,150,200]
 # no_observers_arr=[2,6]
 no_targets_arr=[3,9,15,21,27,50]
 # no_targets_arr=[3,9]

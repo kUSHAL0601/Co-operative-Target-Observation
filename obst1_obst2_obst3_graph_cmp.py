@@ -37,8 +37,8 @@ def mean(arr):
 
 # no_observers_arr=[2,6,10,14,18]
 # no_targets_arr=[3,9,15,21,27]
-no_observers_arr=[2,6,10,14,18,20,50]
-# no_observers_arr=[2,6]
+no_observers_arr=[2,5,10,14,18,20,50]
+# no_observers_arr=[2,5]
 no_targets_arr=[3,9,15,21,27,50,100]
 # no_targets_arr=[3,9]
 x_limit=150
@@ -383,7 +383,7 @@ for k in range(30):
 				obstacles2=deepcopy(obstacles)
 				mo1=main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
 				mo2=main_obstacle_2(no_targets,no_observers,no_obstacles,targets1,observers1,obstacles1)
-				mo3=main_obstacle_3(no_targets,no_observers,no_obstacles,targets1,observers1,obstacles1)
+				mo3=main_obstacle_3(no_targets,no_observers,no_obstacles,targets2,observers2,obstacles2)
 				if((j,l) in d12):
 					if(mo1):
 						d12[(j,l)].append((mo2-mo1)/mo1)
