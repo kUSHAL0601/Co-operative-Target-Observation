@@ -133,5 +133,5 @@ def main_new(no_targets,no_observers,targets,observers,threshold):
 
 no_targets,no_observers,targets,observers=initialize()
 sorted_observers=sorted(observers,key=lambda x: x.limit)
-count_new+=main_new(no_targets,no_observers,targets,sorted_observers,0.3)
+count_new=main_new(no_targets,no_observers,targets,sorted_observers,0.3)
 print(count_new)
