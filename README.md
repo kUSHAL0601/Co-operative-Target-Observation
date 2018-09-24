@@ -3,3 +3,4 @@
 + USE main_vmd to visualize it in vmd. Simply redirect it to animation.xyz file and run it in vmd
 + Multiple work- env and algos implemented
 + README to be updated
++ WARNING: REPO TOO BIG SO BEWARE WHILE CLONING!
