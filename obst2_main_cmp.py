@@ -163,6 +163,8 @@ def main_obstacle_2(no_targets,no_observers,no_obstacles,targets,observers,obsta
 					E_min=LP_CTO(rwrd,1.0,template_probability_distribution)[0]
 					alpha=BRLP_CTO(rwrd,template_probability_distribution,E_min)
 					observers[i].update_target(alpha,explore,x_limit,y_limit,mean_x,mean_y)
+					if(len(obs_arr_x)):
+						observers[i].sleep=True
 				else:
 					observers[i].update_target(1,1,x_limit,y_limit,0,0)
 

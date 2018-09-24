@@ -161,6 +161,8 @@ def main_obstacle_1(no_targets,no_observers,no_obstacles,targets,observers,obsta
 					E_min=LP_CTO(rwrd,1.0,template_probability_distribution)[0]
 					alpha=BRLP_CTO(rwrd,template_probability_distribution,E_min)
 					observers[i].update_target(alpha,explore,x_limit,y_limit,mean_x,mean_y)
+					if(len(observer_obstacle_dict[i])):
+						observers[i].sleep=True
 				else:
 					observers[i].update_target(1,1,x_limit,y_limit,0,0)
 
@@ -258,6 +260,8 @@ def main_obstacle_2(no_targets,no_observers,no_obstacles,targets,observers,obsta
 					E_min=LP_CTO(rwrd,1.0,template_probability_distribution)[0]
 					alpha=BRLP_CTO(rwrd,template_probability_distribution,E_min)
 					observers[i].update_target(alpha,explore,x_limit,y_limit,mean_x,mean_y)
+					if(len(obs_arr_x)):
+						observers[i].sleep=True
 				else:
 					observers[i].update_target(1,1,x_limit,y_limit,0,0)
 
@@ -338,6 +342,7 @@ def main_obstacle_3(no_targets,no_observers,no_obstacles,targets,observers,obsta
 						mean_y=mean(obs_arr_y)
 						explore=pow(1/(len(obs_arr_x)+1),2)
 						observers[i].update_target(1,explore,x_limit,y_limit,mean_x,mean_y)
+						observes[i].sleep=True
 					else:
 						observers[i].update_target(1,1,x_limit,y_limit,0,0)
 
