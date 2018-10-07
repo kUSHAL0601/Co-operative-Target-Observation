@@ -11,4 +11,3 @@
 + Multiple work- env and algos implemented
 + README to be updated
 + WARNING: REPO TOO BIG SO BEWARE WHILE CLONING!
->>>>>>> c0a00413defc3e40c93e18c17ad58ac5249df763
