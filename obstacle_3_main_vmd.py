@@ -138,7 +138,7 @@ def main_obstacle_3(no_targets,no_observers,no_obstacles,targets,observers,obsta
 						mean_y=mean(obs_arr_y)
 						explore=pow(1/(len(obs_arr_x)+1),2)
 						observers[i].update_target(1,explore,x_limit,y_limit,mean_x,mean_y)
-						observes[i].sleep=True
+						observers[i].sleep=True
 					else:
 						observers[i].update_target(1,1,x_limit,y_limit,0,0)
 

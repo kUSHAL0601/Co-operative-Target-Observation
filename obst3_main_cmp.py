@@ -165,7 +165,7 @@ def main_obstacle_3(no_targets,no_observers,no_obstacles,targets,observers,obsta
 						mean_y=mean(obs_arr_y)
 						explore=pow(1/(len(obs_arr_x)+1),2)
 						observers[i].update_target(1,explore,x_limit,y_limit,mean_x,mean_y)
-						observes[i].sleep=True
+						observers[i].sleep=True
 					else:
 						observers[i].update_target(1,1,x_limit,y_limit,0,0)
 
@@ -196,10 +196,11 @@ def main_obstacle_3(no_targets,no_observers,no_obstacles,targets,observers,obsta
 		for i in targets:
 			i.update(x_limit,y_limit)
 		step+=1
-		ans_dict=update_for_observers1(observers,targets)
+		ans_dict=update_for_observers(observers,targets,obstacles)[0]
 		for i in ans_dict:
-			for j in ans_dict[i]:
-				total_count_obst+=1
+			if not observers[i].sleep:
+				for j in ans_dict[i]:
+					total_count_obst+=1
 	return total_count_obst
 
 
@@ -275,15 +276,15 @@ def main_orig(no_targets,no_observers,targets,observers):
 # ORIGINAL MAIN END
 orig=0
 obs=0
-for k in range(30):
+for k in range(1):
 	for i in no_observers_arr:
 		for j in no_targets_arr:
 			no_targets,no_observers,no_obstacles,targets,observers,obstacles=initialize_param(j,i)
 			targets1=deepcopy(targets)
 			observers1=deepcopy(observers)
 			mo=main_obstacle_3(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
-			prin(i,j,m,mo,m-mo)
-			m=main_orig(no_targets,no_observers,targets,observers)
+			m=main_orig(no_targets,no_observers,targets1,observers1)
+			print(i,j,m,mo,m-mo)
 			orig+=m
 			obs+=mo
 print("FINAL",orig,obs)
