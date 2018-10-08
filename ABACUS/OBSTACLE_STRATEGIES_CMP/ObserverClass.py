@@ -12,27 +12,15 @@ class ObserverClass:
 		self.goAround=-1
 		self.old_pos_x=0
 		self.old_pos_y=0
+		self.sleep=False
+		self.angle=0
 
 	def update_target(self,alpha,explore,x_limit,y_limit,mean_x,mean_y):
+		if self.sleep:
+			self.sleep=False
+			return
 		temp_x=self.x*(1-alpha)+alpha*explore*(self.x+(random()*(x_limit/2)-(x_limit/4)))+alpha*(1-explore)*mean_x
 		temp_y=self.y*(1-alpha)+alpha*explore*(self.y+(random()*(y_limit/2)-(y_limit/4)))+alpha*(1-explore)*mean_y
-		# flag=0
-		# if(explore==1):
-		# 	if(self.x>x_limit-25 or self.x<-x_limit+25):
-		# 		temp_x=-self.x
-		# 		flag=1
-		# 	else:
-		# 		temp_x=self.x
-		# 	if(self.y>y_limit-25 or self.y<-y_limit+25):
-		# 		temp_y=-self.y
-		# 		flag=1
-		# 	else:
-		# 		temp_y=self.y
-		# if(flag==1):
-		# 	self.angle=tan_inv(temp_y,temp_x)
-		# 	return
-		# temp_x=self.x*(1-alpha)+alpha*explore*(self.x+(random()*(x_limit/2)-(x_limit/4)))+alpha*(1-explore)*mean_x
-		# temp_y=self.y*(1-alpha)+alpha*explore*(self.y+(random()*(y_limit/2)-(y_limit/4)))+alpha*(1-explore)*mean_y
 		if(temp_x>x_limit or temp_x<-x_limit):
 			while(not (temp_x>x_limit or temp_x<-x_limit)):
 				temp_x=self.x+(random()*(x_limit/2)-(x_limit/4))
@@ -42,8 +30,12 @@ class ObserverClass:
 		self.target_x=temp_x
 		self.target_y=temp_y
 		self.angle=tan_inv((temp_y-self.y),(temp_x-self.x))
+		# print(self.angle)
 
 	def update(self,x_limit,y_limit):
+		if self.sleep:
+			self.sleep=False
+			return
 		temp_x=self.x+self.speed*math.cos(self.angle)
 		temp_y=self.y+self.speed*math.sin(self.angle)
 		if(temp_x>x_limit):
