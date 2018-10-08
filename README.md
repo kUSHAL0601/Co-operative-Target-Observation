@@ -6,8 +6,6 @@
 
 # Progress of work
 + Introducing controlled randomization to make my movement pattern not guessable
-
-=======
 + Multiple work- env and algos implemented
 + README to be updated
 + WARNING: REPO TOO BIG SO BEWARE WHILE CLONING!
