@@ -1,0 +1,15 @@
+Data is recorded for:
+No of obserevers=10
+No of targets is one from [3,9,15,21,27,50,100]
+No of obstacles are from [0,1,2,3,4]
+
+The whole thing is run for 10 iterations
+
+We can see in the first case where there are no obstacles present, the relationship is a linear one(It tends to one).
+
+In the case of the stratergy we proposed, it turns out the relationship is not linear.
+The number of targets observed has in general an increased with number of obstacles increased. This should not have been the case, but the reason we observe this pattern is that the targets try to get behind the obstacles and hence the observers have an increased probability to find them behind that when they have no targets in range to observe.
+
+Hence I consider these should be the future goals which are very important for now:
+Improve the target stratergy
+Improve amount of randomization in target stratergy making it less guessable.

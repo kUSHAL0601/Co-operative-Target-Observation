@@ -130,6 +130,8 @@ def update_for_targets(observers,targets,obstacles):
 					break
 	return [temp_dict,temp_dict1]
 
+#STRATERGIC MAIN
+
 def main_obstacle_3(no_targets,no_observers,no_obstacles,targets,observers,obstacles):
 	step=0
 	data_until_update=[]
@@ -174,18 +176,7 @@ def main_obstacle_3(no_targets,no_observers,no_obstacles,targets,observers,obsta
 				for j in target_observer_dict[i]:
 					temp_arr_x.append(observers[j].x)
 					temp_arr_y.append(observers[j].y)
-				target_obstacle_dict[i].sort(reverse=True,key=lambda i: obstacles[i][0])
-				if(len(target_obstacle_dict[i])):
-					obst_idx=target_obstacle_dict[i][0]
-					sx=0
-					sy=0
-					for j in obstacles[obst_idx][1]:
-						sx+=j.x
-						sy+=j.y
-					n=obstacles[obst_idx][0]
-					# print("Found obstacle at ",sx/n,sy/n)
-					targets[i].update_target_obst(x_limit,y_limit,sx/n,sy/n)
-				elif(len(temp_arr_x) and len(temp_arr_y)):
+				if(len(temp_arr_x) and len(temp_arr_y)):
 					mean_x=mean(temp_arr_x)
 					mean_y=mean(temp_arr_y)
 					targets[i].update_target(x_limit,y_limit,mean_x,mean_y)
@@ -201,6 +192,65 @@ def main_obstacle_3(no_targets,no_observers,no_obstacles,targets,observers,obsta
 				for j in ans_dict[i]:
 					total_count_obst+=1
 	return total_count_obst
+
+#NAIVE MAIN
+
+def main_naive(no_targets,no_observers,no_obstacles,targets,observers,obstacles):
+	step=0
+	data_until_update=[]
+	total_count_obst=0
+	while(step<=total_steps):
+		if(step%update_steps==0):
+			[observer_target_dict,observer_obstacle_dict]=update_for_observers(observers,targets,obstacles)
+			[target_observer_dict,target_obstacle_dict]=update_for_targets(observers,targets,obstacles)
+			for i in observer_target_dict:
+				temp_arr_x=[]
+				temp_arr_y=[]
+				obs_arr_x=[]
+				obs_arr_y=[]
+				for j in observer_target_dict[i]:
+					temp_arr_x.append(targets[j].x)
+					temp_arr_y.append(targets[j].y)
+				for j in observer_obstacle_dict[i]:
+					for k in obstacles[j][1]:
+						obs_arr_x.append(k.x)
+						obs_arr_y.append(k.y)
+				if(len(temp_arr_x)):
+					mean_x=mean(temp_arr_x)
+					mean_y=mean(temp_arr_y)
+					explore=pow(1/(len(observer_target_dict[i])+1),2)
+					rwrd=reward(observers[i],targets,observer_target_dict[i],x_limit,y_limit,explore,mean_x,mean_y)
+					E_min=LP_CTO(rwrd,1.0,template_probability_distribution)[0]
+					alpha=BRLP_CTO(rwrd,template_probability_distribution,E_min)
+					observers[i].update_target(alpha,explore,x_limit,y_limit,mean_x,mean_y)
+				else:
+					observers[i].update_target(1,1,x_limit,y_limit,0,0)
+					if(len(obs_arr_x)):
+						observers[i].sleep=True
+
+			for i in target_observer_dict:
+				temp_arr_x=[]
+				temp_arr_y=[]
+				for j in target_observer_dict[i]:
+					temp_arr_x.append(observers[j].x)
+					temp_arr_y.append(observers[j].y)
+				if(len(temp_arr_x) and len(temp_arr_y)):
+					mean_x=mean(temp_arr_x)
+					mean_y=mean(temp_arr_y)
+					targets[i].update_target(x_limit,y_limit,mean_x,mean_y)
+
+		for i in observers:
+			i.update(x_limit,y_limit)
+		for i in targets:
+			i.update(x_limit,y_limit)
+		step+=1
+		ans_dict=update_for_observers(observers,targets,obstacles)[0]
+		for i in ans_dict:
+			if not observers[i].sleep:
+				for j in ans_dict[i]:
+					total_count_obst+=1
+	return total_count_obst
+
 
 
 #ORIGINAL MAIN
@@ -275,6 +325,7 @@ def main_orig(no_targets,no_observers,targets,observers):
 # ORIGINAL MAIN END
 orig=0
 obs=0
+naive=0
 for i in no_observers_arr:
 	for j in no_targets_arr:
 		for no_obst in range(5):
@@ -282,9 +333,14 @@ for i in no_observers_arr:
 				no_targets,no_observers,no_obstacles,targets,observers,obstacles=initialize_param(j,i,no_obst)
 				targets1=deepcopy(targets)
 				observers1=deepcopy(observers)
+				obstacles1=deepcopy(obstacles)
+				targets2=deepcopy(targets)
+				observers2=deepcopy(observers)
 				mo=main_obstacle_3(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
-				m=main_orig(no_targets,no_observers,targets1,observers1)
-				print(i,j,no_obst,m,mo,m-mo)
+				mn=main_naive(no_targets,no_observers,no_obstacles,targets1,observers1,obstacles1)
+				m=main_orig(no_targets,no_observers,targets2,observers2)
+				print(i,j,no_obst,m,mn,mo)
 				orig+=m
+				naive+=mn
 				obs+=mo
-print("FINAL",orig,obs)
+print("FINAL",orig,naive,obs)

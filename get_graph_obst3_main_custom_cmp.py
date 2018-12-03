@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 lines=[]
 
 # with open("./obst3_main_custom_cmp_res.txt", "r") as f:
-with open("./obst3_main_custom_cmp_res_mult.txt", "r") as f:
+with open("./obst3_main_custom_cmp_res_mult1.txt", "r") as f:
 	for line in f:
 		lines.append(line)
 d1={}
