@@ -172,6 +172,50 @@ class strat4:
             for i in observer_target_dict:
                 total_observed+=len(observer_target_dict[i])
         print("Stratergy 4: ",total_observed)
+
+    def run_obs(self,no_targets,no_obstacles,targets,obstacles,observer_object):
+        total_observed=0
+        [observer_target_dict,observer_obstacle_dict]=self.update_for_observers([observer_object],obstacles,targets)
+        for i in observer_target_dict:
+            temp_arr_x=[]
+            temp_arr_y=[]
+            obs_arr_x=[]
+            obs_arr_y=[]
+            for j in observer_target_dict[i]:
+                temp_arr_x.append(targets[j].x)
+                temp_arr_y.append(targets[j].y)
+            for j in observer_obstacle_dict[i]:
+                for k in obstacles[j][1]:
+                    obs_arr_x.append(k.x)
+                    obs_arr_y.append(k.y)
+            if(len(temp_arr_x)):
+                mean_x=mean(temp_arr_x)
+                mean_y=mean(temp_arr_y)
+                explore=pow(1/(len(observer_target_dict[i])+1),2)
+                rwrd=reward(observer_object,targets,observer_target_dict[i],self.x_limit,self.y_limit,explore,mean_x,mean_y)
+                E_min=LP_CTO(rwrd,1.0,self.template_probability_distribution)[0]
+                alpha=BRLP_CTO(rwrd,self.template_probability_distribution,E_min)
+                observer_object.update_target(alpha,explore,self.x_limit,self.y_limit,mean_x,mean_y)
+            else:
+                if(len(obs_arr_x)):
+                    mean_x=mean(obs_arr_x)
+                    mean_y=mean(obs_arr_y)
+                    explore=pow(1/(len(obs_arr_x)+1),2)
+                    observer_object.update_target(1,explore,self.x_limit,self.y_limit,mean_x,mean_y)
+                    observer_object.sleep=True
+                else:
+                    observer_object.update_target(1,1,self.x_limit,self.y_limit,0,0)
+
+        for i in observer_target_dict:
+            total_observed+=len(observer_target_dict[i])
+        if total_observed>0:
+            print("Observer using Stratergy 4: ",total_observed)
+
+
     def run_default(self):
         (no_targets,no_observers,no_obstacles,targets,observers,obstacles)=self.initialize()
-        tc=self.run(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
+        # tc=self.run(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
+        for i in range(15000):
+            if i%self.update_steps==0:
+                tc=self.run_obs(no_targets,no_obstacles,targets,obstacles,observers[0])
+            observers[0].update(self.x_limit,self.y_limit)
