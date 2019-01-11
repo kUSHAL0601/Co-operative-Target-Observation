@@ -33,16 +33,11 @@ class strat3:
     def initialize(self):
         no_observers_arr=[2,6,10,14,18]
         no_targets_arr=[3,9,15,21,27]
-        self.x_limit=150
-        self.y_limit=150
         target_speed=[0.2,0.5,0.8,1.0,1.2,1.5]
         observer_speed=1.0
         sensor_range=[5,10,15,20,25]
-        self.total_steps=1500
-        self.update_steps=10
         observer_target_dict={}
         obstacle_len=[2,5,8,10,12,20]
-        self.template_probability_distribution=[0.001953125, 0.001953125, 0.00390625, 0.0078125, 0.015625, 0.03125, 0.0625, 0.125,0.25,0.5]
         targets=[]
         a=[-1 ,1]
         observers=[]
@@ -105,8 +100,8 @@ class strat3:
         total_observed=0
         step=0
         data_until_update=[]
-        while(step<=self.total_steps):
-            if(step%self.update_steps==0):
+        while(step<=1500):
+            if(step%10==0):
                 [observer_target_dict,observer_obstacle_dict]=self.update_for_observers(observers,obstacles,targets)
                 [target_observer_dict,target_obstacle_dict]=self.update_for_targets(observers,obstacles,targets)
                 for i in observer_target_dict:
@@ -129,14 +124,14 @@ class strat3:
                             mean_x=mean(temp_arr_x)
                             mean_y=mean(temp_arr_y)
                         explore=pow(1/(len(observer_target_dict[i])+1),2)
-                        rwrd=reward(observers[i],targets,observer_target_dict[i],self.x_limit,self.y_limit,explore,mean_x,mean_y)
-                        E_min=LP_CTO(rwrd,1.0,self.template_probability_distribution)[0]
-                        alpha=BRLP_CTO(rwrd,self.template_probability_distribution,E_min)
-                        observers[i].update_target(alpha,explore,self.x_limit,self.y_limit,mean_x,mean_y)
+                        rwrd=reward(observers[i],targets,observer_target_dict[i],150,150,explore,mean_x,mean_y)
+                        E_min=LP_CTO(rwrd,1.0,[0.001953125, 0.001953125, 0.00390625, 0.0078125, 0.015625, 0.03125, 0.0625, 0.125,0.25,0.5])[0]
+                        alpha=BRLP_CTO(rwrd,[0.001953125, 0.001953125, 0.00390625, 0.0078125, 0.015625, 0.03125, 0.0625, 0.125,0.25,0.5],E_min)
+                        observers[i].update_target(alpha,explore,150,150,mean_x,mean_y)
                         if(len(obs_arr_x)):
                             observers[i].sleep=True
                     else:
-                        observers[i].update_target(1,1,self.x_limit,self.y_limit,0,0)
+                        observers[i].update_target(1,1,150,150,0,0)
 
                 for i in target_observer_dict:
                     temp_arr_x=[]
@@ -157,16 +152,16 @@ class strat3:
                             sy+=j.y
                         n=obstacles[obst_idx][0]
                         # print("Found obstacle at ",sx/n,sy/n)
-                        targets[i].update_target_obst(self.x_limit,self.y_limit,sx/n,sy/n)
+                        targets[i].update_target_obst(150,150,sx/n,sy/n)
                     elif(len(temp_arr_x) and len(temp_arr_y)):
                         mean_x=mean(temp_arr_x)
                         mean_y=mean(temp_arr_y)
-                        targets[i].update_target(self.x_limit,self.y_limit,mean_x,mean_y)
+                        targets[i].update_target(150,150,mean_x,mean_y)
 
             for i in observers:
-                i.update(self.x_limit,self.y_limit)
+                i.update(150,150)
             for i in targets:
-                i.update(self.x_limit,self.y_limit)
+                i.update(150,150)
             step+=1
             [observer_target_dict,observer_obstacle_dict]=self.update_for_observers(observers,obstacles,targets)
             for i in observer_target_dict:
@@ -197,14 +192,14 @@ class strat3:
                     mean_x=mean(temp_arr_x)
                     mean_y=mean(temp_arr_y)
                 explore=pow(1/(len(observer_target_dict[i])+1),2)
-                rwrd=reward(observer_object,targets,observer_target_dict[i],self.x_limit,self.y_limit,explore,mean_x,mean_y)
-                E_min=LP_CTO(rwrd,1.0,self.template_probability_distribution)[0]
-                alpha=BRLP_CTO(rwrd,self.template_probability_distribution,E_min)
-                observer_object.update_target(alpha,explore,self.x_limit,self.y_limit,mean_x,mean_y)
+                rwrd=reward(observer_object,targets,observer_target_dict[i],150,150,explore,mean_x,mean_y)
+                E_min=LP_CTO(rwrd,1.0,[0.001953125, 0.001953125, 0.00390625, 0.0078125, 0.015625, 0.03125, 0.0625, 0.125,0.25,0.5])[0]
+                alpha=BRLP_CTO(rwrd,[0.001953125, 0.001953125, 0.00390625, 0.0078125, 0.015625, 0.03125, 0.0625, 0.125,0.25,0.5],E_min)
+                observer_object.update_target(alpha,explore,150,150,mean_x,mean_y)
                 if(len(obs_arr_x)):
                     observer_object.sleep=True
             else:
-                observer_object.update_target(1,1,self.x_limit,self.y_limit,0,0)
+                observer_object.update_target(1,1,150,150,0,0)
 
         for i in observer_target_dict:
             total_observed+=len(observer_target_dict[i])
@@ -216,6 +211,6 @@ class strat3:
         (no_targets,no_observers,no_obstacles,targets,observers,obstacles)=self.initialize()
         tc=self.run(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
         # for i in range(15000):
-        #     if i%self.update_steps==0:
+        #     if i%10==0:
         #         tc=self.run_obs(no_targets,no_obstacles,targets,obstacles,observers[0])
-        #     observers[0].update(self.x_limit,self.y_limit)        
+        #     observers[0].update(150,150)        
