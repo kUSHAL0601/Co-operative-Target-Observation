@@ -5,7 +5,7 @@ from random import randint as RI
 from random import random as R
 from LP_CTO import LP_CTO
 from BRLP_CTO import BRLP_CTO
-from reward import reward
+from reward_obs_1 import reward_obs_1 as reward
 from math import ceil,sin,cos
 
 def opp(l1x,l1y,l2x,l2y,p1x,p1y,p2x,p2y):
@@ -155,11 +155,11 @@ class strat2:
             for i in targets:
                 i.update(self.x_limit,self.y_limit)
             step+=1
-            for i in obstacles:
-                total_observed+=i[0]
-            total_observed+=len(targets)
-            total_observed+=len(observers)
+            [observer_target_dict,observer_obstacle_dict]=self.update_for_observers(observers,obstacles,targets)
+            for i in observer_target_dict:
+                total_observed+=len(observer_target_dict[i])
         print("Stratergy 2: ",total_observed)
+        return total_observed
     def run_default(self):
         (no_targets,no_observers,no_obstacles,targets,observers,obstacles)=self.initialize()
         tc=self.run(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
