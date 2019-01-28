@@ -38,11 +38,11 @@ class CentralizedComm:
 			observers.append(O(R()*150,R()*150,self.observer_speed,sensor_range_targets))
 		return (no_targets,no_observers,targets,observers)
 
-	def initialize_param(self,no_targets,no_observers,sensor_range_targets,sensor_range_observers):
+	def initialize_param(self,no_targets,no_observers,sensor_range_targets,sensor_range_observers,target_spd):
 		targets=[]
 		observers=[]
 		for i in range(no_targets):
-			targets.append(T(R()*150,R()*150,self.target_speed[RI(0,5)],R()*360,sensor_range_observers))
+			targets.append(T(R()*150,R()*150,target_spd,R()*360,sensor_range_observers))
 		for i in range(no_observers):
 			observers.append(O(R()*150,R()*150,self.observer_speed,sensor_range_targets))
 		return (no_targets,no_observers,targets,observers)
