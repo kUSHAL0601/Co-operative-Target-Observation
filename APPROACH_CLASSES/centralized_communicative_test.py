@@ -68,6 +68,7 @@ class CentralizedComm:
 		return temp_dict
 
 	def run(self,no_targets,no_observers,targets,observers,threshold):
+		observers=sorted(observers,key=lambda x: x.limit)
 		step=0
 		count=0
 		data_until_update=[]

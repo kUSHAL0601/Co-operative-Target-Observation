@@ -170,8 +170,8 @@ class strat1:
 
 		for i in observer_target_dict:
 			total_observed+=len(observer_target_dict[i])
-		if total_observed>0:
-			print("Observer using Stratergy 1: ",total_observed)
+		# if total_observed>0:
+		# 	print("Observer using Stratergy 1: ",total_observed)
 		return total_observed
 
 

@@ -204,9 +204,9 @@ class strat4:
 
         for i in observer_target_dict:
             total_observed+=len(observer_target_dict[i])
-        if total_observed>0:
-            print("Observer using Stratergy 4: ",total_observed)
-
+        # if total_observed>0:
+        #     print("Observer using Stratergy 4: ",total_observed)
+        return total_observed
 
     def run_default(self):
         (no_targets,no_observers,no_obstacles,targets,observers,obstacles)=self.initialize()

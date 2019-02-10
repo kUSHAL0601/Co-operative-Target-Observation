@@ -38,7 +38,7 @@ def mean(arr):
 	return sum(arr)/len(arr)
 
 
-class hetero_main:
+class hetero_main_1:
 	def initialize(self):
 		no_observers_arr=[2,6,10,14,18]
 		no_targets_arr=[3,9,15,21,27]
@@ -155,6 +155,7 @@ class hetero_main:
 		while(step<=self.total_steps):
 			if(step%self.update_steps==0):
 				for i in range(len(observers)):
+                    # RUN FOR THE ONE WHICH WOULD YIELD BEST RESULTS NOW
 					if observer_strategy[i]==1:
 						s1.run_obs(no_targets,no_obstacles,targets,obstacles,observers[i])
 					if observer_strategy[i]==2:
