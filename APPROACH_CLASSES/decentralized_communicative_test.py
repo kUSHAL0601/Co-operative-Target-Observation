@@ -122,13 +122,9 @@ class DecenteralizedComm:
 			for i in targets:
 				i.update(self.x_limit,self.y_limit)
 			tmp_observer_target_dict=self.update_for_observers(observers,targets)
-			tmp_arr=[]
 			for i in tmp_observer_target_dict:
-				for j in tmp_observer_target_dict[i]:
-					if(j not in tmp_arr):
-						tmp_arr.append(j)
+				count+=len(observer_target_dict[i])
 			# print("Observers observed in "+str(step)+"is "+str(len(tmp_arr)))
-			count+=len(tmp_arr)
 			step+=1
 		return count
 

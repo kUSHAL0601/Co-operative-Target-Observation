@@ -1,6 +1,7 @@
 from main_test import Main as m
 from centralized_communicative_test import CentralizedComm as cc
 from decentralized_communicative_test import DecenteralizedComm as dc
+from copy import deepcopy
 
 no_observers_arr=[2,6,10,14,18,20,50]
 no_targets_arr=[3,9,15,21,27,50,100]
@@ -15,9 +16,13 @@ for _ in range(10):
                     for tspeed in target_speed:
                         a1=m()
                         (no_targets,no_observers,targets,observers)=a1.initialize_param(trgt,obsver,sns_rng_t,sns_rng_o,tspeed)
+                        t1=deepcopy(targets)
+                        o1=deepcopy(observers)
+                        t2=deepcopy(targets)
+                        o2=deepcopy(observers)
                         a2=cc()
                         a3=dc()
                         x1=a1.run(no_targets,no_observers,targets,observers)
-                        x2=a2.run(no_targets,no_observers,targets,observers,0.2)
-                        x3=a3.run(no_targets,no_observers,targets,observers,0.2)
+                        x2=a2.run(no_targets,no_observers,t1,o1,0.2)
+                        x3=a3.run(no_targets,no_observers,t2,o2,0.2)
                         print("No of Targets:",trgt,"No of Observers:",obsver,"Target's sensor range:",sns_rng_t,"Observer's sensor range:",sns_rng_o,"Target speed:",tspeed,"Original:",x1,"Centeralized Comm.:",x2,"Decentralized Comm.:",x3)
