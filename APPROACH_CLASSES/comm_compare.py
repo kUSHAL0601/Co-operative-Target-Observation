@@ -11,7 +11,7 @@ target_speed=[0.2,0.5,0.8,1.0,1.2,1.5]
 c1=0
 c2=0
 c3=0
-threshold=0.2
+threshold=0.3
 print("\n\n THRESHOLD: ",threshold*100,"%\n\n")
 for _ in range(10):
     for trgt in no_targets_arr:
@@ -34,4 +34,4 @@ for _ in range(10):
                 x3=a3.run(no_targets,no_observers,t2,o2,threshold)
                 c3+=x3
                 print("No of Targets:",trgt,"No of Observers:",obsver,"Target's sensor range:",sns_rng_t,"Observer's sensor range:",sns_rng_o,"Target speed:",tspeed,"Original:",x1,"Centeralized Comm.:",x2,"Decentralized Comm.:",x3)
-print("Normal:",t1,"Centralized",t2,"Decenteralized",t3)
+print("Normal:",c1,"Centralized",c2,"Decenteralized",c3)

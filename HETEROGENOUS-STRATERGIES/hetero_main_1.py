@@ -156,14 +156,32 @@ class hetero_main_1:
 			if(step%self.update_steps==0):
 				for i in range(len(observers)):
                     # RUN FOR THE ONE WHICH WOULD YIELD BEST RESULTS NOW
-					if observer_strategy[i]==1:
-						s1.run_obs(no_targets,no_obstacles,targets,obstacles,observers[i])
-					if observer_strategy[i]==2:
-						s2.run_obs(no_targets,no_obstacles,targets,obstacles,observers[i])
-					if observer_strategy[i]==3:
-						s3.run_obs(no_targets,no_obstacles,targets,obstacles,observers[i])
-					if observer_strategy[i]==4:
-						s4.run_obs(no_targets,no_obstacles,targets,obstacles,observers[i])
+					d_obst={}
+
+					targets_copy=deepcopy(targets)
+					obstacles_copy=deepcopy(obstacles)
+					o_copy1=deepcopy(observers[i])
+					d_obst[s1.run_obs(no_targets,no_obstacles,targets_copy,obstacles_copy,o_copy1)]=1
+
+					targets_copy=deepcopy(targets)
+					obstacles_copy=deepcopy(obstacles)
+					o_copy2=deepcopy(observers[i])
+					d_obst[s2.run_obs(no_targets,no_obstacles,targets_copy,obstacles_copy,o_copy2)]=2
+					
+					targets_copy=deepcopy(targets)
+					obstacles_copy=deepcopy(obstacles)
+					o_copy3=deepcopy(observers[i])
+					d_obst[s3.run_obs(no_targets,no_obstacles,targets_copy,obstacles_copy,o_copy3)]=3
+					
+					targets_copy=deepcopy(targets)
+					obstacles_copy=deepcopy(obstacles)
+					o_copy4=deepcopy(observers[i])
+					d_obst[s4.run_obs(no_targets,no_obstacles,targets_copy,obstacles_copy,o_copy4)]=4
+
+					m=max(d_obst)
+					m=d_obst[m]
+					xyz=[0,o_copy1,o_copy2,o_copy3,o_copy4]
+					observers[i]=deepcopy(xyz[m])
 				[target_observer_dict,target_obstacle_dict]=self.update_for_targets(observers,obstacles,targets)
 				for i in target_observer_dict:
 					temp_arr_x=[]
