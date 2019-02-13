@@ -4,8 +4,6 @@ no_observers_arr=[2,6,10,14,18]
 no_targets_arr=[3,9,15,21,27]
 sensor_range=[5,10,15,20,25]
 dh={}
-d1={}
-d2={}
 d3={}
 d4={}
 
@@ -20,16 +18,12 @@ for _ in range(10):
                 print()
                 try:
                     dh[(str(trgt),str(obsver),str(sns_rng_o))]+=y[0]
-                    d1[(str(trgt),str(obsver),str(sns_rng_o))]+=y[1]
-                    d2[(str(trgt),str(obsver),str(sns_rng_o))]+=y[2]
-                    d3[(str(trgt),str(obsver),str(sns_rng_o))]+=y[3]
-                    d4[(str(trgt),str(obsver),str(sns_rng_o))]+=y[4]
+                    d3[(str(trgt),str(obsver),str(sns_rng_o))]+=y[1]
+                    d4[(str(trgt),str(obsver),str(sns_rng_o))]+=y[2]
                 except:
                     dh[(str(trgt),str(obsver),str(sns_rng_o))]=y[0]
-                    d1[(str(trgt),str(obsver),str(sns_rng_o))]=y[1]
-                    d2[(str(trgt),str(obsver),str(sns_rng_o))]=y[2]
-                    d3[(str(trgt),str(obsver),str(sns_rng_o))]=y[3]
-                    d4[(str(trgt),str(obsver),str(sns_rng_o))]=y[4]
+                    d3[(str(trgt),str(obsver),str(sns_rng_o))]=y[1]
+                    d4[(str(trgt),str(obsver),str(sns_rng_o))]=y[2]
 print("Targets, Observers, Sensor Range, Heterog, Strat 1, Strat 2, Strat 3, Strat 4")
 for i in dh:
-    print(' '.join(i),dh[i]/10,d1[i]/10,d2[i]/10,d3[i]/10,d4[i]/10)
+    print(' '.join(i),dh[i]/10,d3[i]/10,d4[i]/10)

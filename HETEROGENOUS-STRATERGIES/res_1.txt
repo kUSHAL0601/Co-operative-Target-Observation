@@ -1,0 +1,358 @@
+Iteration: 1 Targets: 3 Observers 2 Sensor Range for observers 5
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 2 Targets: 3 Observers 2 Sensor Range for observers 10
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  4
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 3 Targets: 3 Observers 2 Sensor Range for observers 15
+Heterogeneous strategy:  1
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 4 Targets: 3 Observers 2 Sensor Range for observers 20
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 5 Targets: 3 Observers 2 Sensor Range for observers 25
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  38
+Stratergy 4:  0
+
+Iteration: 6 Targets: 3 Observers 6 Sensor Range for observers 5
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 7 Targets: 3 Observers 6 Sensor Range for observers 10
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 8 Targets: 3 Observers 6 Sensor Range for observers 15
+Heterogeneous strategy:  0
+Stratergy 1:  1
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 9 Targets: 3 Observers 6 Sensor Range for observers 20
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 10 Targets: 3 Observers 6 Sensor Range for observers 25
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  24
+Stratergy 4:  0
+
+Iteration: 11 Targets: 3 Observers 10 Sensor Range for observers 5
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 12 Targets: 3 Observers 10 Sensor Range for observers 10
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 13 Targets: 3 Observers 10 Sensor Range for observers 15
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 14 Targets: 3 Observers 10 Sensor Range for observers 20
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  1
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 15 Targets: 3 Observers 10 Sensor Range for observers 25
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  22
+
+Iteration: 16 Targets: 3 Observers 14 Sensor Range for observers 5
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  1
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 17 Targets: 3 Observers 14 Sensor Range for observers 10
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 18 Targets: 3 Observers 14 Sensor Range for observers 15
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  16
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 19 Targets: 3 Observers 14 Sensor Range for observers 20
+Heterogeneous strategy:  9
+Stratergy 1:  10
+Stratergy 2:  1
+Stratergy 3:  0
+Stratergy 4:  5
+
+Iteration: 20 Targets: 3 Observers 14 Sensor Range for observers 25
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 21 Targets: 3 Observers 18 Sensor Range for observers 5
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 22 Targets: 3 Observers 18 Sensor Range for observers 10
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 23 Targets: 3 Observers 18 Sensor Range for observers 15
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 24 Targets: 3 Observers 18 Sensor Range for observers 20
+Heterogeneous strategy:  10
+Stratergy 1:  6
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 25 Targets: 3 Observers 18 Sensor Range for observers 25
+Heterogeneous strategy:  0
+Stratergy 1:  21
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  8
+
+Iteration: 26 Targets: 9 Observers 2 Sensor Range for observers 5
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 27 Targets: 9 Observers 2 Sensor Range for observers 10
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 28 Targets: 9 Observers 2 Sensor Range for observers 15
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 29 Targets: 9 Observers 2 Sensor Range for observers 20
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 30 Targets: 9 Observers 2 Sensor Range for observers 25
+Heterogeneous strategy:  23
+Stratergy 1:  31
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 31 Targets: 9 Observers 6 Sensor Range for observers 5
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 32 Targets: 9 Observers 6 Sensor Range for observers 10
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  31
+Stratergy 4:  79
+
+Iteration: 33 Targets: 9 Observers 6 Sensor Range for observers 15
+Heterogeneous strategy:  0
+Stratergy 1:  12
+Stratergy 2:  11
+Stratergy 3:  171
+Stratergy 4:  6
+
+Iteration: 34 Targets: 9 Observers 6 Sensor Range for observers 20
+Heterogeneous strategy:  0
+Stratergy 1:  6
+Stratergy 2:  44
+Stratergy 3:  48
+Stratergy 4:  6
+
+Iteration: 35 Targets: 9 Observers 6 Sensor Range for observers 25
+Heterogeneous strategy:  17
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  44
+Stratergy 4:  8
+
+Iteration: 36 Targets: 9 Observers 10 Sensor Range for observers 5
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  6
+Stratergy 4:  0
+
+Iteration: 37 Targets: 9 Observers 10 Sensor Range for observers 10
+Heterogeneous strategy:  0
+Stratergy 1:  23
+Stratergy 2:  0
+Stratergy 3:  16
+Stratergy 4:  21
+
+Iteration: 38 Targets: 9 Observers 10 Sensor Range for observers 15
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  3
+Stratergy 4:  0
+
+Iteration: 39 Targets: 9 Observers 10 Sensor Range for observers 20
+Heterogeneous strategy:  1
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  59
+Stratergy 4:  0
+
+Iteration: 40 Targets: 9 Observers 10 Sensor Range for observers 25
+Heterogeneous strategy:  18
+Stratergy 1:  37
+Stratergy 2:  0
+Stratergy 3:  19
+Stratergy 4:  6
+
+Iteration: 41 Targets: 9 Observers 14 Sensor Range for observers 5
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  2
+Stratergy 4:  8
+
+Iteration: 42 Targets: 9 Observers 14 Sensor Range for observers 10
+Heterogeneous strategy:  1
+Stratergy 1:  0
+Stratergy 2:  9
+Stratergy 3:  25
+Stratergy 4:  51
+
+Iteration: 43 Targets: 9 Observers 14 Sensor Range for observers 15
+Heterogeneous strategy:  2
+Stratergy 1:  10
+Stratergy 2:  16
+Stratergy 3:  30
+Stratergy 4:  0
+
+Iteration: 44 Targets: 9 Observers 14 Sensor Range for observers 20
+Heterogeneous strategy:  6
+Stratergy 1:  15
+Stratergy 2:  0
+Stratergy 3:  79
+Stratergy 4:  123
+
+Iteration: 45 Targets: 9 Observers 14 Sensor Range for observers 25
+Heterogeneous strategy:  3
+Stratergy 1:  12
+Stratergy 2:  168
+Stratergy 3:  41
+Stratergy 4:  77
+
+Iteration: 46 Targets: 9 Observers 18 Sensor Range for observers 5
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  11
+
+Iteration: 47 Targets: 9 Observers 18 Sensor Range for observers 10
+Heterogeneous strategy:  7
+Stratergy 1:  4
+Stratergy 2:  0
+Stratergy 3:  13
+Stratergy 4:  65
+
+Iteration: 48 Targets: 9 Observers 18 Sensor Range for observers 15
+Heterogeneous strategy:  18
+Stratergy 1:  0
+Stratergy 2:  18
+Stratergy 3:  7
+Stratergy 4:  4
+
+Iteration: 49 Targets: 9 Observers 18 Sensor Range for observers 20
+Heterogeneous strategy:  11
+Stratergy 1:  8
+Stratergy 2:  2
+Stratergy 3:  235
+Stratergy 4:  229
+
+Iteration: 50 Targets: 9 Observers 18 Sensor Range for observers 25
+Heterogeneous strategy:  51
+Stratergy 1:  46
+Stratergy 2:  36
+Stratergy 3:  133
+Stratergy 4:  90
+
+Iteration: 51 Targets: 15 Observers 2 Sensor Range for observers 5
+Heterogeneous strategy:  0
+Stratergy 1:  0
+Stratergy 2:  0
+Stratergy 3:  0
+Stratergy 4:  0
+
+Iteration: 52 Targets:

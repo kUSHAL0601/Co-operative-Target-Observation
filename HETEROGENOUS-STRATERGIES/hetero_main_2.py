@@ -146,7 +146,7 @@ class hetero_main_2:
 	def run(self,no_targets,no_observers,no_obstacles,targets,observers,obstacles,observer_strategy):
 		step=0
 		total_observed=0
-		s1=strat1()
+		# s1=strat1()
 		s2=strat2()
 		s3=strat3()
 		s4=strat4()
@@ -199,15 +199,15 @@ class hetero_main_2:
 		ob3=deepcopy(obstacles)
 		ob4=deepcopy(obstacles)
 		tc=self.run(no_targets,no_observers,no_obstacles,targets,observers,obstacles,observer_strategy)
-		strategy1=strat1()
-		c1=strategy1.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
+		# strategy1=strat1()
+		# c1=strategy1.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
 		strategy2=strat2()
 		c2=strategy2.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
 		strategy3=strat3()
 		c3=strategy3.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
 		strategy4=strat4()
 		c4=strategy4.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
-		return [tc,c1,c2,c3,c4]
+		return [tc,c2,c3,c4]
 	
 	def custom_cmp(self,no_trgts,no_obs,obs_range):
 		(no_targets,no_observers,no_obstacles,targets,observers,obstacles,observer_strategy)=self.initialize_custom(no_trgts,no_obs,obs_range)
@@ -224,12 +224,12 @@ class hetero_main_2:
 		ob3=deepcopy(obstacles)
 		ob4=deepcopy(obstacles)
 		tc=self.run(no_targets,no_observers,no_obstacles,targets,observers,obstacles,observer_strategy)
-		strategy1=strat1()
-		c1=strategy1.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
+		# strategy1=strat1()
+		# c1=strategy1.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
 		strategy2=strat2()
 		c2=strategy2.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
 		strategy3=strat3()
 		c3=strategy3.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
 		strategy4=strat4()
 		c4=strategy4.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
-		return [tc,c1,c2,c3,c4]
+		return [tc,c2,c3,c4]
