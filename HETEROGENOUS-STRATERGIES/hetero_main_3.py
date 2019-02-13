@@ -1,5 +1,3 @@
-import strat1
-import strat2
 import strat3
 import strat4
 
@@ -64,7 +62,7 @@ class hetero_main:
 			targets.append(T(R()*150*a[RI(0,1)],R()*150*a[RI(0,1)],target_speed[RI(0,5)],R()*360,sensor_range[RI(0,4)]))
 		for i in range(no_observers):
 			observers.append(O(R()*150*a[RI(0,1)],R()*150*a[RI(0,1)],observer_speed,sensor_range[RI(0,4)]))
-			observer_strategy.append(RI(1,4))
+			observer_strategy.append(RI(3,4))
 		for i in range(no_obstacles):
 			obs_len=obstacle_len[RI(0,5)]
 			angle=R()*360
@@ -97,7 +95,7 @@ class hetero_main:
 			targets.append(T(R()*150*a[RI(0,1)],R()*150*a[RI(0,1)],target_speed[RI(0,5)],R()*360,sensor_range[RI(0,4)]))
 		for i in range(no_obs):
 			observers.append(O(R()*150*a[RI(0,1)],R()*150*a[RI(0,1)],observer_speed,obs_range))
-			observer_strategy.append(RI(1,4))
+			observer_strategy.append(RI(3,4))
 		for i in range(no_obstacles):
 			obs_len=obstacle_len[RI(0,5)]
 			angle=R()*360
