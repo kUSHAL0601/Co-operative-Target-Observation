@@ -1,4 +1,4 @@
-from hetero_main import hetero_main as h
+from hetero_main_2 import hetero_main_2 as h
 x=h()
 no_observers_arr=[2,6,10,14,18]
 no_targets_arr=[3,9,15,21,27]

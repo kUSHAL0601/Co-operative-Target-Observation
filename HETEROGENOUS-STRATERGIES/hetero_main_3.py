@@ -36,7 +36,7 @@ def mean(arr):
 	return sum(arr)/len(arr)
 
 
-class hetero_main:
+class hetero_main_3:
 	def initialize(self):
 		no_observers_arr=[2,6,10,14,18]
 		no_targets_arr=[3,9,15,21,27]
