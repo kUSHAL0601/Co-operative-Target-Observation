@@ -5,7 +5,7 @@ no_targets_arr=[3,9,15,21,27]
 sensor_range=[5,10,15,20,25]
 
 iter=0
-for _ in range(10):
+for _ in range(1):
     for trgt in no_targets_arr:
         for obsver in no_observers_arr:
             for sns_rng_o in sensor_range:
