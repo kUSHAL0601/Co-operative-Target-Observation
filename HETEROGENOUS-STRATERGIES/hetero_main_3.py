@@ -1,6 +1,3 @@
-import strat3
-import strat4
-
 from strat1 import strat1
 from strat2 import strat2
 from strat3 import strat3
@@ -199,10 +196,10 @@ class hetero_main_3:
 		ob3=deepcopy(obstacles)
 		ob4=deepcopy(obstacles)
 		tc=self.run(no_targets,no_observers,no_obstacles,targets,observers,obstacles,observer_strategy)
-		# strategy1=strat1()
-		# c1=strategy1.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
-		# strategy2=strat2()
-		# c2=strategy2.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
+		strategy1=strat1()
+		c1=strategy1.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
+		strategy2=strat2()
+		c2=strategy2.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
 		strategy3=strat3()
 		c3=strategy3.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
 		strategy4=strat4()
@@ -224,10 +221,10 @@ class hetero_main_3:
 		ob3=deepcopy(obstacles)
 		ob4=deepcopy(obstacles)
 		tc=self.run(no_targets,no_observers,no_obstacles,targets,observers,obstacles,observer_strategy)
-		# strategy1=strat1()
-		# c1=strategy1.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
-		# strategy2=strat2()
-		# c2=strategy2.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
+		strategy1=strat1()
+		c1=strategy1.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
+		strategy2=strat2()
+		c2=strategy2.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
 		strategy3=strat3()
 		c3=strategy3.run(no_targets,no_observers,no_obstacles,t1,o1,ob1)
 		strategy4=strat4()

@@ -194,3 +194,4 @@ class strat2:
         #     if i%10==0:
         #         tc=self.run_obs(no_targets,no_obstacles,targets,obstacles,observers[0])
         #     observers[0].update(150,150)        
+        return tc

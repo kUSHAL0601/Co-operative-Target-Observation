@@ -1,0 +1,503 @@
+
+Targets: 3 Observers: 2 Sensor range: 5
+Hetero: 0 Strat1: 0 Strat2: 0 Strat3: 0 Strat4: 0
+
+
+Targets: 3 Observers: 2 Sensor range: 10
+Hetero: 0 Strat1: 0 Strat2: 4 Strat3: 0 Strat4: 0
+
+
+Targets: 3 Observers: 2 Sensor range: 15
+Hetero: 1 Strat1: 0 Strat2: 0 Strat3: 5 Strat4: 7
+
+
+Targets: 3 Observers: 2 Sensor range: 20
+Hetero: 0 Strat1: 24 Strat2: 0 Strat3: 35 Strat4: 11
+
+
+Targets: 3 Observers: 2 Sensor range: 25
+Hetero: 0 Strat1: 0 Strat2: 0 Strat3: 182 Strat4: 55
+
+
+Targets: 3 Observers: 6 Sensor range: 5
+Hetero: 0 Strat1: 0 Strat2: 0 Strat3: 0 Strat4: 5
+
+
+Targets: 3 Observers: 6 Sensor range: 10
+Hetero: 0 Strat1: 0 Strat2: 0 Strat3: 5 Strat4: 30
+
+
+Targets: 3 Observers: 6 Sensor range: 15
+Hetero: 0 Strat1: 1 Strat2: 1 Strat3: 0 Strat4: 0
+
+
+Targets: 3 Observers: 6 Sensor range: 20
+Hetero: 0 Strat1: 0 Strat2: 10 Strat3: 0 Strat4: 0
+
+
+Targets: 3 Observers: 6 Sensor range: 25
+Hetero: 26 Strat1: 0 Strat2: 0 Strat3: 73 Strat4: 19
+
+
+Targets: 3 Observers: 10 Sensor range: 5
+Hetero: 0 Strat1: 0 Strat2: 0 Strat3: 0 Strat4: 14
+
+
+Targets: 3 Observers: 10 Sensor range: 10
+Hetero: 0 Strat1: 0 Strat2: 0 Strat3: 0 Strat4: 100
+
+
+Targets: 3 Observers: 10 Sensor range: 15
+Hetero: 1 Strat1: 2 Strat2: 0 Strat3: 18 Strat4: 15
+
+
+Targets: 3 Observers: 10 Sensor range: 20
+Hetero: 26 Strat1: 0 Strat2: 59 Strat3: 57 Strat4: 74
+
+
+Targets: 3 Observers: 10 Sensor range: 25
+Hetero: 22 Strat1: 89 Strat2: 14 Strat3: 42 Strat4: 131
+
+
+Targets: 3 Observers: 14 Sensor range: 5
+Hetero: 0 Strat1: 0 Strat2: 1 Strat3: 0 Strat4: 6
+
+
+Targets: 3 Observers: 14 Sensor range: 10
+Hetero: 10 Strat1: 0 Strat2: 0 Strat3: 3 Strat4: 171
+
+
+Targets: 3 Observers: 14 Sensor range: 15
+Hetero: 34 Strat1: 17 Strat2: 16 Strat3: 15 Strat4: 159
+
+
+Targets: 3 Observers: 14 Sensor range: 20
+Hetero: 42 Strat1: 17 Strat2: 2 Strat3: 264 Strat4: 116
+
+
+Targets: 3 Observers: 14 Sensor range: 25
+Hetero: 36 Strat1: 7 Strat2: 73 Strat3: 247 Strat4: 238
+
+
+Targets: 3 Observers: 18 Sensor range: 5
+Hetero: 0 Strat1: 0 Strat2: 0 Strat3: 0 Strat4: 1
+
+
+Targets: 3 Observers: 18 Sensor range: 10
+Hetero: 2 Strat1: 1 Strat2: 37 Strat3: 46 Strat4: 92
+
+
+Targets: 3 Observers: 18 Sensor range: 15
+Hetero: 0 Strat1: 0 Strat2: 6 Strat3: 8 Strat4: 118
+
+
+Targets: 3 Observers: 18 Sensor range: 20
+Hetero: 36 Strat1: 88 Strat2: 88 Strat3: 220 Strat4: 224
+
+
+Targets: 3 Observers: 18 Sensor range: 25
+Hetero: 34 Strat1: 100 Strat2: 45 Strat3: 208 Strat4: 412
+
+
+Targets: 9 Observers: 2 Sensor range: 5
+Hetero: 2 Strat1: 1 Strat2: 0 Strat3: 0 Strat4: 0
+
+
+Targets: 9 Observers: 2 Sensor range: 10
+Hetero: 10 Strat1: 0 Strat2: 35 Strat3: 58 Strat4: 103
+
+
+Targets: 9 Observers: 2 Sensor range: 15
+Hetero: 4 Strat1: 0 Strat2: 5 Strat3: 47 Strat4: 36
+
+
+Targets: 9 Observers: 2 Sensor range: 20
+Hetero: 23 Strat1: 0 Strat2: 6 Strat3: 11 Strat4: 50
+
+
+Targets: 9 Observers: 2 Sensor range: 25
+Hetero: 30 Strat1: 62 Strat2: 142 Strat3: 4 Strat4: 48
+
+
+Targets: 9 Observers: 6 Sensor range: 5
+Hetero: 0 Strat1: 0 Strat2: 0 Strat3: 5 Strat4: 35
+
+
+Targets: 9 Observers: 6 Sensor range: 10
+Hetero: 7 Strat1: 2 Strat2: 0 Strat3: 58 Strat4: 161
+
+
+Targets: 9 Observers: 6 Sensor range: 15
+Hetero: 37 Strat1: 39 Strat2: 55 Strat3: 245 Strat4: 165
+
+
+Targets: 9 Observers: 6 Sensor range: 20
+Hetero: 54 Strat1: 133 Strat2: 464 Strat3: 434 Strat4: 494
+
+
+Targets: 9 Observers: 6 Sensor range: 25
+Hetero: 110 Strat1: 88 Strat2: 467 Strat3: 623 Strat4: 411
+
+
+Targets: 9 Observers: 10 Sensor range: 5
+Hetero: 0 Strat1: 0 Strat2: 0 Strat3: 16 Strat4: 67
+
+
+Targets: 9 Observers: 10 Sensor range: 10
+Hetero: 7 Strat1: 35 Strat2: 16 Strat3: 74 Strat4: 45
+
+
+Targets: 9 Observers: 10 Sensor range: 15
+Hetero: 68 Strat1: 40 Strat2: 20 Strat3: 303 Strat4: 284
+
+
+Targets: 9 Observers: 10 Sensor range: 20
+Hetero: 121 Strat1: 65 Strat2: 114 Strat3: 486 Strat4: 448
+
+
+Targets: 9 Observers: 10 Sensor range: 25
+Hetero: 651 Strat1: 603 Strat2: 674 Strat3: 1722 Strat4: 806
+
+
+Targets: 9 Observers: 14 Sensor range: 5
+Hetero: 2 Strat1: 0 Strat2: 6 Strat3: 8 Strat4: 88
+
+
+Targets: 9 Observers: 14 Sensor range: 10
+Hetero: 15 Strat1: 0 Strat2: 27 Strat3: 110 Strat4: 213
+
+
+Targets: 9 Observers: 14 Sensor range: 15
+Hetero: 96 Strat1: 82 Strat2: 111 Strat3: 230 Strat4: 374
+
+
+Targets: 9 Observers: 14 Sensor range: 20
+Hetero: 265 Strat1: 195 Strat2: 347 Strat3: 1152 Strat4: 921
+
+
+Targets: 9 Observers: 14 Sensor range: 25
+Hetero: 441 Strat1: 439 Strat2: 749 Strat3: 1475 Strat4: 950
+
+
+Targets: 9 Observers: 18 Sensor range: 5
+Hetero: 0 Strat1: 1 Strat2: 4 Strat3: 33 Strat4: 52
+
+
+Targets: 9 Observers: 18 Sensor range: 10
+Hetero: 18 Strat1: 23 Strat2: 57 Strat3: 286 Strat4: 296
+
+
+Targets: 9 Observers: 18 Sensor range: 15
+Hetero: 72 Strat1: 67 Strat2: 163 Strat3: 307 Strat4: 619
+
+
+Targets: 9 Observers: 18 Sensor range: 20
+Hetero: 273 Strat1: 232 Strat2: 313 Strat3: 1483 Strat4: 777
+
+
+Targets: 9 Observers: 18 Sensor range: 25
+Hetero: 487 Strat1: 751 Strat2: 992 Strat3: 2292 Strat4: 1173
+
+
+Targets: 15 Observers: 2 Sensor range: 5
+Hetero: 0 Strat1: 0 Strat2: 0 Strat3: 11 Strat4: 36
+
+
+Targets: 15 Observers: 2 Sensor range: 10
+Hetero: 1 Strat1: 1 Strat2: 1 Strat3: 84 Strat4: 6
+
+
+Targets: 15 Observers: 2 Sensor range: 15
+Hetero: 18 Strat1: 66 Strat2: 57 Strat3: 205 Strat4: 91
+
+
+Targets: 15 Observers: 2 Sensor range: 20
+Hetero: 94 Strat1: 146 Strat2: 200 Strat3: 348 Strat4: 551
+
+
+Targets: 15 Observers: 2 Sensor range: 25
+Hetero: 78 Strat1: 153 Strat2: 275 Strat3: 290 Strat4: 106
+
+
+Targets: 15 Observers: 6 Sensor range: 5
+Hetero: 0 Strat1: 0 Strat2: 8 Strat3: 20 Strat4: 18
+
+
+Targets: 15 Observers: 6 Sensor range: 10
+Hetero: 26 Strat1: 18 Strat2: 21 Strat3: 137 Strat4: 339
+
+
+Targets: 15 Observers: 6 Sensor range: 15
+Hetero: 142 Strat1: 114 Strat2: 260 Strat3: 671 Strat4: 625
+
+
+Targets: 15 Observers: 6 Sensor range: 20
+Hetero: 414 Strat1: 100 Strat2: 704 Strat3: 708 Strat4: 556
+
+
+Targets: 15 Observers: 6 Sensor range: 25
+Hetero: 284 Strat1: 773 Strat2: 883 Strat3: 1585 Strat4: 520
+
+
+Targets: 15 Observers: 10 Sensor range: 5
+Hetero: 10 Strat1: 0 Strat2: 9 Strat3: 75 Strat4: 174
+
+
+Targets: 15 Observers: 10 Sensor range: 10
+Hetero: 45 Strat1: 37 Strat2: 56 Strat3: 152 Strat4: 311
+
+
+Targets: 15 Observers: 10 Sensor range: 15
+Hetero: 45 Strat1: 215 Strat2: 499 Strat3: 832 Strat4: 710
+
+
+Targets: 15 Observers: 10 Sensor range: 20
+Hetero: 437 Strat1: 419 Strat2: 465 Strat3: 2306 Strat4: 864
+
+
+Targets: 15 Observers: 10 Sensor range: 25
+Hetero: 648 Strat1: 1750 Strat2: 1963 Strat3: 3748 Strat4: 2182
+
+
+Targets: 15 Observers: 14 Sensor range: 5
+Hetero: 0 Strat1: 1 Strat2: 20 Strat3: 52 Strat4: 86
+
+
+Targets: 15 Observers: 14 Sensor range: 10
+Hetero: 39 Strat1: 32 Strat2: 73 Strat3: 185 Strat4: 305
+
+
+Targets: 15 Observers: 14 Sensor range: 15
+Hetero: 280 Strat1: 240 Strat2: 533 Strat3: 1720 Strat4: 1016
+
+
+Targets: 15 Observers: 14 Sensor range: 20
+Hetero: 375 Strat1: 597 Strat2: 1169 Strat3: 2424 Strat4: 1472
+
+
+Targets: 15 Observers: 14 Sensor range: 25
+Hetero: 1205 Strat1: 1435 Strat2: 1561 Strat3: 2807 Strat4: 3308
+
+
+Targets: 15 Observers: 18 Sensor range: 5
+Hetero: 3 Strat1: 0 Strat2: 13 Strat3: 109 Strat4: 173
+
+
+Targets: 15 Observers: 18 Sensor range: 10
+Hetero: 75 Strat1: 45 Strat2: 113 Strat3: 648 Strat4: 1116
+
+
+Targets: 15 Observers: 18 Sensor range: 15
+Hetero: 450 Strat1: 324 Strat2: 476 Strat3: 1617 Strat4: 988
+
+
+Targets: 15 Observers: 18 Sensor range: 20
+Hetero: 773 Strat1: 613 Strat2: 1560 Strat3: 2618 Strat4: 2516
+
+
+Targets: 15 Observers: 18 Sensor range: 25
+Hetero: 1287 Strat1: 1895 Strat2: 2674 Strat3: 4997 Strat4: 2569
+
+
+Targets: 21 Observers: 2 Sensor range: 5
+Hetero: 3 Strat1: 0 Strat2: 3 Strat3: 2 Strat4: 18
+
+
+Targets: 21 Observers: 2 Sensor range: 10
+Hetero: 7 Strat1: 12 Strat2: 78 Strat3: 20 Strat4: 11
+
+
+Targets: 21 Observers: 2 Sensor range: 15
+Hetero: 50 Strat1: 107 Strat2: 118 Strat3: 715 Strat4: 313
+
+
+Targets: 21 Observers: 2 Sensor range: 20
+Hetero: 98 Strat1: 139 Strat2: 549 Strat3: 1030 Strat4: 413
+
+
+Targets: 21 Observers: 2 Sensor range: 25
+Hetero: 273 Strat1: 371 Strat2: 493 Strat3: 1296 Strat4: 403
+
+
+Targets: 21 Observers: 6 Sensor range: 5
+Hetero: 1 Strat1: 4 Strat2: 19 Strat3: 15 Strat4: 50
+
+
+Targets: 21 Observers: 6 Sensor range: 10
+Hetero: 26 Strat1: 48 Strat2: 85 Strat3: 191 Strat4: 211
+
+
+Targets: 21 Observers: 6 Sensor range: 15
+Hetero: 219 Strat1: 139 Strat2: 327 Strat3: 508 Strat4: 544
+
+
+Targets: 21 Observers: 6 Sensor range: 20
+Hetero: 581 Strat1: 494 Strat2: 1081 Strat3: 2006 Strat4: 509
+
+
+Targets: 21 Observers: 6 Sensor range: 25
+Hetero: 931 Strat1: 1092 Strat2: 1837 Strat3: 3428 Strat4: 1318
+
+
+Targets: 21 Observers: 10 Sensor range: 5
+Hetero: 14 Strat1: 5 Strat2: 37 Strat3: 31 Strat4: 96
+
+
+Targets: 21 Observers: 10 Sensor range: 10
+Hetero: 117 Strat1: 60 Strat2: 89 Strat3: 404 Strat4: 1063
+
+
+Targets: 21 Observers: 10 Sensor range: 15
+Hetero: 448 Strat1: 375 Strat2: 825 Strat3: 2171 Strat4: 1672
+
+
+Targets: 21 Observers: 10 Sensor range: 20
+Hetero: 884 Strat1: 750 Strat2: 1192 Strat3: 2894 Strat4: 1895
+
+
+Targets: 21 Observers: 10 Sensor range: 25
+Hetero: 1995 Strat1: 2118 Strat2: 2986 Strat3: 5140 Strat4: 5053
+
+
+Targets: 21 Observers: 14 Sensor range: 5
+Hetero: 5 Strat1: 7 Strat2: 9 Strat3: 111 Strat4: 115
+
+
+Targets: 21 Observers: 14 Sensor range: 10
+Hetero: 90 Strat1: 128 Strat2: 306 Strat3: 880 Strat4: 1974
+
+
+Targets: 21 Observers: 14 Sensor range: 15
+Hetero: 455 Strat1: 492 Strat2: 645 Strat3: 1684 Strat4: 1913
+
+
+Targets: 21 Observers: 14 Sensor range: 20
+Hetero: 1199 Strat1: 1240 Strat2: 2104 Strat3: 4278 Strat4: 3213
+
+
+Targets: 21 Observers: 14 Sensor range: 25
+Hetero: 2538 Strat1: 3196 Strat2: 5265 Strat3: 5792 Strat4: 7153
+
+
+Targets: 21 Observers: 18 Sensor range: 5
+Hetero: 8 Strat1: 9 Strat2: 30 Strat3: 56 Strat4: 194
+
+
+Targets: 21 Observers: 18 Sensor range: 10
+Hetero: 139 Strat1: 63 Strat2: 300 Strat3: 1215 Strat4: 2278
+
+
+Targets: 21 Observers: 18 Sensor range: 15
+Hetero: 430 Strat1: 537 Strat2: 1104 Strat3: 1887 Strat4: 3103
+
+
+Targets: 21 Observers: 18 Sensor range: 20
+Hetero: 1643 Strat1: 2049 Strat2: 3795 Strat3: 4154 Strat4: 6446
+
+
+Targets: 21 Observers: 18 Sensor range: 25
+Hetero: 3218 Strat1: 4990 Strat2: 5055 Strat3: 9800 Strat4: 5594
+
+
+Targets: 27 Observers: 2 Sensor range: 5
+Hetero: 4 Strat1: 0 Strat2: 9 Strat3: 10 Strat4: 72
+
+
+Targets: 27 Observers: 2 Sensor range: 10
+Hetero: 8 Strat1: 21 Strat2: 36 Strat3: 70 Strat4: 190
+
+
+Targets: 27 Observers: 2 Sensor range: 15
+Hetero: 58 Strat1: 76 Strat2: 220 Strat3: 159 Strat4: 253
+
+
+Targets: 27 Observers: 2 Sensor range: 20
+Hetero: 368 Strat1: 315 Strat2: 941 Strat3: 514 Strat4: 767
+
+
+Targets: 27 Observers: 2 Sensor range: 25
+Hetero: 373 Strat1: 762 Strat2: 2161 Strat3: 3256 Strat4: 3932
+
+
+Targets: 27 Observers: 6 Sensor range: 5
+Hetero: 13 Strat1: 4 Strat2: 2 Strat3: 43 Strat4: 125
+
+
+Targets: 27 Observers: 6 Sensor range: 10
+Hetero: 112 Strat1: 24 Strat2: 105 Strat3: 664 Strat4: 1222
+
+
+Targets: 27 Observers: 6 Sensor range: 15
+Hetero: 317 Strat1: 416 Strat2: 835 Strat3: 1270 Strat4: 613
+
+
+Targets: 27 Observers: 6 Sensor range: 20
+Hetero: 839 Strat1: 1020 Strat2: 1279 Strat3: 1981 Strat4: 1259
+
+
+Targets: 27 Observers: 6 Sensor range: 25
+Hetero: 1410 Strat1: 2496 Strat2: 3438 Strat3: 4419 Strat4: 2299
+
+
+Targets: 27 Observers: 10 Sensor range: 5
+Hetero: 7 Strat1: 8 Strat2: 12 Strat3: 111 Strat4: 138
+
+
+Targets: 27 Observers: 10 Sensor range: 10
+Hetero: 99 Strat1: 113 Strat2: 314 Strat3: 624 Strat4: 748
+
+
+Targets: 27 Observers: 10 Sensor range: 15
+Hetero: 376 Strat1: 678 Strat2: 785 Strat3: 2140 Strat4: 2593
+
+
+Targets: 27 Observers: 10 Sensor range: 20
+Hetero: 926 Strat1: 1525 Strat2: 2711 Strat3: 3142 Strat4: 3673
+
+
+Targets: 27 Observers: 10 Sensor range: 25
+Hetero: 1874 Strat1: 5783 Strat2: 5027 Strat3: 5778 Strat4: 2637
+
+
+Targets: 27 Observers: 14 Sensor range: 5
+Hetero: 12 Strat1: 6 Strat2: 29 Strat3: 94 Strat4: 208
+
+
+Targets: 27 Observers: 14 Sensor range: 10
+Hetero: 202 Strat1: 230 Strat2: 261 Strat3: 871 Strat4: 1117
+
+
+Targets: 27 Observers: 14 Sensor range: 15
+Hetero: 775 Strat1: 827 Strat2: 1232 Strat3: 2383 Strat4: 2088
+
+
+Targets: 27 Observers: 14 Sensor range: 20
+Hetero: 2069 Strat1: 2445 Strat2: 3054 Strat3: 4689 Strat4: 3278
+
+
+Targets: 27 Observers: 14 Sensor range: 25
+Hetero: 2934 Strat1: 4259 Strat2: 6775 Strat3: 9890 Strat4: 7216
+
+
+Targets: 27 Observers: 18 Sensor range: 5
+Hetero: 35 Strat1: 10 Strat2: 20 Strat3: 156 Strat4: 284
+
+
+Targets: 27 Observers: 18 Sensor range: 10
+Hetero: 211 Strat1: 202 Strat2: 300 Strat3: 913 Strat4: 1714
+
+
+Targets: 27 Observers: 18 Sensor range: 15
+Hetero: 1239 Strat1: 1065 Strat2: 1174 Strat3: 3082 Strat4: 2420
+
+
+Targets: 27 Observers: 18 Sensor range: 20
+Hetero: 2337 Strat1: 2879 Strat2: 3890 Strat3: 8366 Strat4: 6149
+
+
+Targets: 27 Observers: 18 Sensor range: 25
+Hetero: 4538 Strat1: 7358 Strat2: 9642 Strat3: 15461 Strat4: 11337
+
+
+
+BETTER IN  73 OUT OF 125

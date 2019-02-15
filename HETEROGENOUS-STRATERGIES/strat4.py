@@ -210,8 +210,9 @@ class strat4:
 
     def run_default(self):
         (no_targets,no_observers,no_obstacles,targets,observers,obstacles)=self.initialize()
-        # tc=self.run(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
-        for i in range(15000):
-            if i%10==0:
-                tc=self.run_obs(no_targets,no_obstacles,targets,obstacles,observers[0])
-            observers[0].update(150,150)
+        tc=self.run(no_targets,no_observers,no_obstacles,targets,observers,obstacles)
+        # for i in range(15000):
+        #     if i%10==0:
+        #         tc=self.run_obs(no_targets,no_obstacles,targets,obstacles,observers[0])
+        #     observers[0].update(150,150)
+        return tc

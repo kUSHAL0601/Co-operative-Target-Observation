@@ -167,6 +167,7 @@ class strat3:
             for i in observer_target_dict:
                 total_observed+=len(observer_target_dict[i])
         print("Stratergy 3: ",total_observed)
+        return total_observed
 
     def run_obs(self,no_targets,no_obstacles,targets,obstacles,observer_object):
         total_observed=0
@@ -214,4 +215,5 @@ class strat3:
         # for i in range(15000):
         #     if i%10==0:
         #         tc=self.run_obs(no_targets,no_obstacles,targets,obstacles,observers[0])
-        #     observers[0].update(150,150)        
+        #     observers[0].update(150,150)
+        return tc
